@@ -13,23 +13,15 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[#E2E8F0]">
           {/* Col 1 & 2: Brand & Address */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="relative w-11 h-11 flex-shrink-0">
+            <Link href="/" className="inline-block py-1">
+              <div className="relative h-12 w-[210px]">
                 <Image
-                  src="/brand/icon.png"
-                  alt="Creators Aquarium"
+                  src="/brand/logo-horizontal-light.png"
+                  alt="Creators Aquarium - Where Oceans Meet Nature"
                   fill
-                  sizes="48px"
-                  className="object-contain"
+                  sizes="210px"
+                  className="object-contain object-left"
                 />
-              </div>
-              <div>
-                <span className="text-sm font-bold tracking-[0.14em] text-[#0A0F1D] uppercase block">
-                  CREATORS AQUARIUM
-                </span>
-                <span className="text-[11px] tracking-[0.08em] text-[#0070E0] uppercase font-semibold">
-                  Where Oceans Meet Nature
-                </span>
               </div>
             </Link>
 
