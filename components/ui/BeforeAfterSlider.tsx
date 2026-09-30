@@ -47,14 +47,14 @@ export function BeforeAfterSlider({
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div className="w-full max-w-5xl mx-auto">
       <div
         ref={containerRef}
         onMouseMove={onMouseMove}
         onMouseUp={onMouseUp}
         onMouseLeave={onMouseUp}
         onTouchMove={onTouchMove}
-        className="relative aspect-video w-full overflow-hidden rounded-lg border border-[#242824] select-none bg-[#101310] cursor-ew-resize shadow-2xl"
+        className="relative aspect-video w-full overflow-hidden rounded-xl border border-[#CBD5E1] select-none bg-[#0A0F1D] cursor-ew-resize shadow-lg"
       >
         {/* AFTER Image (Full background) */}
         <div className="absolute inset-0">
@@ -62,11 +62,11 @@ export function BeforeAfterSlider({
             src={afterImage}
             alt={afterAlt}
             fill
-            sizes="(max-width: 1200px) 100vw, 1024px"
+            sizes="(max-width: 1200px) 100vw, 1200px"
             className="object-cover"
             priority
           />
-          <div className="absolute top-4 right-4 z-10 px-3 py-1 rounded bg-[#050505]/80 backdrop-blur-sm border border-[#242824] text-[10px] font-semibold tracking-widest uppercase text-[#8BCF32]">
+          <div className="absolute top-4 right-4 z-10 px-3.5 py-1.5 rounded-md bg-[#FFFFFF]/90 backdrop-blur-md border border-[#E2E8F0] text-[11px] font-bold tracking-wider uppercase text-[#0070E0] shadow-sm">
             After Creators Care
           </div>
         </div>
@@ -81,7 +81,7 @@ export function BeforeAfterSlider({
               src={beforeImage}
               alt={beforeAlt}
               fill
-              sizes="(max-width: 1200px) 100vw, 1024px"
+              sizes="(max-width: 1200px) 100vw, 1200px"
               className="object-cover pointer-events-none"
               style={{
                 width: containerRef.current
@@ -92,32 +92,32 @@ export function BeforeAfterSlider({
               priority
             />
           </div>
-          <div className="absolute top-4 left-4 z-10 px-3 py-1 rounded bg-[#050505]/80 backdrop-blur-sm border border-[#242824] text-[10px] font-semibold tracking-widest uppercase text-[#A3A69F]">
+          <div className="absolute top-4 left-4 z-10 px-3.5 py-1.5 rounded-md bg-[#0A0F1D]/85 backdrop-blur-md border border-[#CBD5E1] text-[11px] font-bold tracking-wider uppercase text-[#FFFFFF] shadow-sm">
             Before Maintenance
           </div>
         </div>
 
         {/* Split Divider Line & Handle */}
         <div
-          className="absolute top-0 bottom-0 w-[2px] bg-[#8BCF32] z-20 cursor-ew-resize flex items-center justify-center pointer-events-none"
+          className="absolute top-0 bottom-0 w-[3px] bg-[#0070E0] z-20 cursor-ew-resize flex items-center justify-center pointer-events-none shadow-md"
           style={{ left: `${sliderPos}%` }}
         >
           <div
             onMouseDown={onMouseDown}
             onTouchStart={onMouseDown}
-            className="w-8 h-8 rounded-full bg-[#101310] border-2 border-[#8BCF32] flex items-center justify-center text-[#F4F4EF] shadow-lg pointer-events-auto"
+            className="w-9 h-9 rounded-full bg-[#FFFFFF] border-2 border-[#0070E0] flex items-center justify-center text-[#0070E0] shadow-xl pointer-events-auto"
           >
             <div className="flex gap-[3px]">
-              <span className="w-[1.5px] h-3 bg-[#8BCF32]" />
-              <span className="w-[1.5px] h-3 bg-[#8BCF32]" />
+              <span className="w-[2px] h-3.5 bg-[#0070E0] rounded-full" />
+              <span className="w-[2px] h-3.5 bg-[#0070E0] rounded-full" />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="flex items-center justify-between mt-3 text-xs text-[#70756D] px-1">
+      <div className="flex items-center justify-between mt-3 text-xs text-[#64748B] px-1 font-medium">
         <span>← Drag left to reveal after</span>
-        <span className="font-mono text-[11px] text-[#A3A69F]">Same tank · 1 visit transformation</span>
+        <span className="font-mono text-[11px] text-[#0A0F1D] font-bold">Same tank · 1 visit transformation</span>
         <span>Drag right to reveal before →</span>
       </div>
     </div>

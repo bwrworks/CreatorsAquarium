@@ -8,13 +8,13 @@ export function Footer() {
   const currentYear = 2026;
 
   return (
-    <footer className="bg-[#050505] border-t border-[#242824] pt-16 pb-12 text-[#A3A69F]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[#242824]">
+    <footer className="bg-[#F8FAFC] border-t border-[#E2E8F0] pt-16 pb-12 text-[#475569]">
+      <div className="w-full max-w-[1750px] mx-auto px-6 sm:px-10 lg:px-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[#E2E8F0]">
           {/* Col 1 & 2: Brand & Address */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-3">
-              <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#242824] bg-[#101310]">
+              <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#E2E8F0] bg-[#FFFFFF] shadow-xs">
                 <Image
                   src="/brand/icon.jpg"
                   alt="Creators Aquarium"
@@ -24,33 +24,33 @@ export function Footer() {
                 />
               </div>
               <div>
-                <span className="text-sm font-semibold tracking-[0.14em] text-[#F4F4EF] uppercase block">
+                <span className="text-sm font-bold tracking-[0.14em] text-[#0A0F1D] uppercase block">
                   CREATORS AQUARIUM
                 </span>
-                <span className="text-[11px] tracking-[0.08em] text-[#8BCF32] uppercase">
+                <span className="text-[11px] tracking-[0.08em] text-[#0070E0] uppercase font-semibold">
                   Where Oceans Meet Nature
                 </span>
               </div>
             </Link>
 
-            <p className="text-xs text-[#A3A69F] leading-relaxed max-w-sm">
+            <p className="text-xs text-[#475569] leading-relaxed max-w-sm">
               Professional aquarium setup, scheduled maintenance, and natural aquascaping for residences, offices, and commercial establishments across Bengaluru.
             </p>
 
-            <div className="pt-2 space-y-2 text-xs text-[#70756D]">
+            <div className="pt-2 space-y-2 text-xs text-[#64748B]">
               <div className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-[#8BCF32]" />
+                <MapPin className="w-3.5 h-3.5 text-[#0070E0]" />
                 <span>{BRAND.address}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Clock className="w-3.5 h-3.5 text-[#8BCF32]" />
+                <Clock className="w-3.5 h-3.5 text-[#0070E0]" />
                 <span>{BRAND.hours}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-[#8BCF32]" />
+                <Phone className="w-3.5 h-3.5 text-[#0070E0]" />
                 <a
                   href={`tel:${BRAND.phone.replace(/\s+/g, "")}`}
-                  className="hover:text-[#F4F4EF] transition-colors"
+                  className="font-semibold text-[#0A0F1D] hover:text-[#0070E0] transition-colors"
                 >
                   {BRAND.phoneDisplay}
                 </a>
@@ -60,14 +60,14 @@ export function Footer() {
 
           {/* Col 3: Services */}
           <div className="space-y-3">
-            <h4 className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#F4F4EF]">
+            <h4 className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0A0F1D]">
               Services
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
                 <Link
                   href="/services/maintenance"
-                  className="hover:text-[#8BCF32] transition-colors"
+                  className="hover:text-[#0070E0] transition-colors"
                 >
                   Routine Maintenance
                 </Link>
@@ -75,7 +75,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/services/maintenance"
-                  className="hover:text-[#8BCF32] transition-colors"
+                  className="hover:text-[#0070E0] transition-colors"
                 >
                   Deep Cleaning & Overhaul
                 </Link>
@@ -83,7 +83,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/services/planted-aquarium"
-                  className="hover:text-[#8BCF32] transition-colors"
+                  className="hover:text-[#0070E0] transition-colors"
                 >
                   Planted Aquarium Care
                 </Link>
@@ -91,7 +91,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/services/marine-aquarium"
-                  className="hover:text-[#8BCF32] transition-colors"
+                  className="hover:text-[#0070E0] transition-colors"
                 >
                   Marine Fish-Only Care
                 </Link>
@@ -99,7 +99,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/services/setup"
-                  className="hover:text-[#8BCF32] transition-colors"
+                  className="hover:text-[#0070E0] transition-colors"
                 >
                   Setup & Commissioning
                 </Link>
@@ -107,7 +107,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/services/relocation"
-                  className="hover:text-[#8BCF32] transition-colors"
+                  className="hover:text-[#0070E0] transition-colors"
                 >
                   Aquarium Relocation
                 </Link>
@@ -117,14 +117,14 @@ export function Footer() {
 
           {/* Col 4: Quick Links */}
           <div className="space-y-3">
-            <h4 className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#F4F4EF]">
+            <h4 className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0A0F1D]">
               Explore
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
                 <Link
                   href="/how-it-works"
-                  className="hover:text-[#8BCF32] transition-colors"
+                  className="hover:text-[#0070E0] transition-colors"
                 >
                   How It Works (SOP)
                 </Link>
@@ -132,7 +132,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/maintenance-plans"
-                  className="hover:text-[#8BCF32] transition-colors"
+                  className="hover:text-[#0070E0] transition-colors"
                 >
                   Monthly AMC Plans
                 </Link>
@@ -140,7 +140,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/gallery"
-                  className="hover:text-[#8BCF32] transition-colors"
+                  className="hover:text-[#0070E0] transition-colors"
                 >
                   Work Gallery
                 </Link>
@@ -148,7 +148,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/about"
-                  className="hover:text-[#8BCF32] transition-colors"
+                  className="hover:text-[#0070E0] transition-colors"
                 >
                   About & Standards
                 </Link>
@@ -156,7 +156,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/faq"
-                  className="hover:text-[#8BCF32] transition-colors"
+                  className="hover:text-[#0070E0] transition-colors"
                 >
                   Frequently Asked Questions
                 </Link>
@@ -164,7 +164,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="hover:text-[#8BCF32] transition-colors"
+                  className="hover:text-[#0070E0] transition-colors"
                 >
                   Contact & Locations
                 </Link>
@@ -174,29 +174,29 @@ export function Footer() {
 
           {/* Col 5: Direct Action */}
           <div className="space-y-4">
-            <h4 className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#F4F4EF]">
-              Direct Booking
+            <h4 className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0A0F1D]">
+              Direct Contact
             </h4>
-            <p className="text-xs text-[#70756D]">
-              Fastest response via WhatsApp. Send photos of your aquarium for an immediate assessment.
+            <p className="text-xs text-[#64748B]">
+              Direct assistance via WhatsApp or phone. Send photos of your aquarium for an immediate quote.
             </p>
             <div className="space-y-2 pt-1">
               <a
                 href={getWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded bg-[#101310] hover:bg-[#151915] border border-[#242824] hover:border-[#8BCF32]/50 text-xs font-medium text-[#F4F4EF] transition-colors"
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-[#FFFFFF] hover:bg-[#F1F5F9] border border-[#CBD5E1] hover:border-[#0070E0] text-xs font-semibold text-[#0A0F1D] shadow-xs transition-colors"
               >
-                <MessageCircle className="w-3.5 h-3.5 text-[#8BCF32]" />
-                <span>WhatsApp Dispatch</span>
-                <ArrowUpRight className="w-3 h-3 text-[#70756D]" />
+                <MessageCircle className="w-3.5 h-3.5 text-[#0070E0]" />
+                <span>WhatsApp: {BRAND.phoneDisplay}</span>
+                <ArrowUpRight className="w-3 h-3 text-[#64748B]" />
               </a>
 
               <a
                 href={`mailto:${BRAND.email}`}
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded bg-[#101310] hover:bg-[#151915] border border-[#242824] hover:border-[#8BCF32]/50 text-xs font-medium text-[#F4F4EF] transition-colors"
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-[#FFFFFF] hover:bg-[#F1F5F9] border border-[#CBD5E1] hover:border-[#0070E0] text-xs font-semibold text-[#0A0F1D] shadow-xs transition-colors"
               >
-                <Mail className="w-3.5 h-3.5 text-[#8BCF32]" />
+                <Mail className="w-3.5 h-3.5 text-[#0070E0]" />
                 <span>{BRAND.email}</span>
               </a>
             </div>
@@ -204,21 +204,21 @@ export function Footer() {
         </div>
 
         {/* Legal Disclaimers & Compliance Statement */}
-        <div className="pt-8 text-[11px] text-[#70756D] space-y-3">
+        <div className="pt-8 text-[11px] text-[#64748B] space-y-3">
           <p className="leading-relaxed">
-            <strong className="text-[#A3A69F]">Wildlife Compliance Notice:</strong> In strict accordance with the Wildlife (Protection) Act and Indian ornamental trade directives, Creators Aquarium does not sell, frag, or market live corals. Marine services are strictly fish-only / saltwater systems utilizing legally compliant, properly sourced livestock and artificial/macro rock hardscaping.
+            <strong className="text-[#0A0F1D]">Wildlife Compliance Notice:</strong> In strict accordance with the Wildlife (Protection) Act and Indian ornamental trade directives, Creators Aquarium does not sell, frag, or market live corals. Marine services are strictly fish-only / saltwater systems utilizing legally compliant, properly sourced livestock and natural rock hardscaping.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#242824]/60">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#E2E8F0]">
             <div>
-              &copy; {currentYear} Creators Aquarium. All rights reserved. Operating across Bengaluru, Karnataka.
+              &copy; {currentYear} Creators Aquarium. All rights reserved. Bengaluru, Karnataka.
             </div>
 
             <div className="flex items-center gap-6">
-              <Link href="/privacy" className="hover:text-[#F4F4EF] transition-colors">
+              <Link href="/privacy" className="hover:text-[#0070E0] transition-colors">
                 Privacy Notice (DPDP 2025)
               </Link>
-              <Link href="/terms" className="hover:text-[#F4F4EF] transition-colors">
+              <Link href="/terms" className="hover:text-[#0070E0] transition-colors">
                 Service Terms & Conditions
               </Link>
             </div>

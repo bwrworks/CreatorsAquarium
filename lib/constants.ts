@@ -4,9 +4,9 @@ export const BRAND = {
   businessSubtitle: "Professional Aquarium Setup & Maintenance",
   heroDescription:
     "Thoughtfully designed aquariums and professional ongoing care for homes, offices and commercial spaces across Bengaluru.",
-  phone: "+91 98860 12345", // Verified placeholder format for Bengaluru launch
-  phoneDisplay: "+91 98860 12345",
-  whatsappNumber: "919886012345",
+  phone: "+91 9206336482",
+  phoneDisplay: "+91 92063 36482",
+  whatsappNumber: "919206336482",
   email: "care@creatorsaquarium.com",
   city: "Bengaluru, Karnataka, India",
   address: "Bengaluru, Karnataka 560038",

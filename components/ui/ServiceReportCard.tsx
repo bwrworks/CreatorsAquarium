@@ -22,48 +22,48 @@ export function ServiceReportCard() {
   ];
 
   return (
-    <div className="relative rounded-lg border border-[#242824] bg-[#101310] p-6 sm:p-8 max-w-2xl mx-auto shadow-2xl">
+    <div className="relative rounded-xl border border-[#CBD5E1] bg-[#FFFFFF] p-6 sm:p-8 max-w-3xl mx-auto shadow-md text-[#0A0F1D]">
       {/* Header Banner */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#242824] pb-5 mb-6">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E2E8F0] pb-5 mb-6">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="inline-block w-2 h-2 rounded-full bg-[#8BCF32]" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#8BCF32]">
+            <span className="inline-block w-2 h-2 rounded-full bg-[#0070E0]" />
+            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0070E0]">
               SAMPLE SERVICE REPORT
             </span>
           </div>
-          <h3 className="text-lg font-serif tracking-wide text-[#F4F4EF]">
+          <h3 className="text-xl font-serif tracking-wide text-[#0A0F1D] font-bold">
             Water Quality & Maintenance Summary
           </h3>
-          <p className="text-xs text-[#70756D]">
+          <p className="text-xs text-[#64748B]">
             Documented proof delivered to your WhatsApp after each standard service
           </p>
         </div>
 
-        <div className="px-3 py-1.5 rounded bg-[#151915] border border-[#242824] text-[11px] text-[#A3A69F] font-mono">
+        <div className="px-3 py-1.5 rounded-md bg-[#F1F5F9] border border-[#CBD5E1] text-[11px] text-[#475569] font-mono font-medium">
           Ref: CA-BLR-SMPL
         </div>
       </div>
 
       {/* Tank Meta */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 p-4 rounded bg-[#0A0C0A] border border-[#242824]/60 mb-6 text-xs">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 p-4 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] mb-6 text-xs">
         <div>
-          <span className="block text-[#70756D] uppercase tracking-wider text-[10px]">
+          <span className="block text-[#64748B] uppercase tracking-wider text-[10px] font-semibold">
             Aquarium System
           </span>
-          <span className="font-medium text-[#F4F4EF]">3 ft Planted Nature Aquarium</span>
+          <span className="font-bold text-[#0A0F1D]">3 ft Planted Nature Aquarium</span>
         </div>
         <div>
-          <span className="block text-[#70756D] uppercase tracking-wider text-[10px]">
+          <span className="block text-[#64748B] uppercase tracking-wider text-[10px] font-semibold">
             Bengaluru Area
           </span>
-          <span className="font-medium text-[#F4F4EF]">Indiranagar, Bengaluru</span>
+          <span className="font-bold text-[#0A0F1D]">Indiranagar, Bengaluru</span>
         </div>
         <div className="col-span-2 sm:col-span-1">
-          <span className="block text-[#70756D] uppercase tracking-wider text-[10px]">
+          <span className="block text-[#64748B] uppercase tracking-wider text-[10px] font-semibold">
             Service Date
           </span>
-          <span className="font-medium text-[#F4F4EF]">29 September 2026 (Sample)</span>
+          <span className="font-bold text-[#0A0F1D]">29 September 2026 (Sample)</span>
         </div>
       </div>
 
@@ -71,23 +71,23 @@ export function ServiceReportCard() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         {/* Left: Water Parameters */}
         <div>
-          <h4 className="text-xs uppercase tracking-[0.12em] text-[#A3A69F] font-semibold mb-3 flex items-center gap-1.5">
-            <FileText className="w-3.5 h-3.5 text-[#8BCF32]" />
+          <h4 className="text-xs uppercase tracking-[0.12em] text-[#0A0F1D] font-bold mb-3 flex items-center gap-1.5">
+            <FileText className="w-4 h-4 text-[#0070E0]" />
             Water Parameters Tested
           </h4>
           <div className="space-y-2">
             {parameters.map((p, idx) => (
               <div
                 key={idx}
-                className="flex items-center justify-between p-2.5 rounded bg-[#050505] border border-[#242824]/40 text-xs"
+                className="flex items-center justify-between p-2.5 rounded-md bg-[#F8FAFC] border border-[#E2E8F0] text-xs"
               >
                 <div className="flex items-center gap-2">
-                  <p.icon className="w-3.5 h-3.5 text-[#8BCF32]" />
-                  <span className="text-[#A3A69F]">{p.label}</span>
+                  <p.icon className="w-3.5 h-3.5 text-[#0070E0]" />
+                  <span className="text-[#475569] font-medium">{p.label}</span>
                 </div>
                 <div className="text-right">
-                  <span className="font-mono font-medium text-[#F4F4EF]">{p.value}</span>
-                  <span className="block text-[9px] text-[#70756D]">Optimal: {p.target}</span>
+                  <span className="font-mono font-bold text-[#0A0F1D]">{p.value}</span>
+                  <span className="block text-[9px] text-[#64748B]">Target: {p.target}</span>
                 </div>
               </div>
             ))}
@@ -96,20 +96,20 @@ export function ServiceReportCard() {
 
         {/* Right: Inspection Checklist */}
         <div>
-          <h4 className="text-xs uppercase tracking-[0.12em] text-[#A3A69F] font-semibold mb-3 flex items-center gap-1.5">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#8BCF32]" />
+          <h4 className="text-xs uppercase tracking-[0.12em] text-[#0A0F1D] font-bold mb-3 flex items-center gap-1.5">
+            <ShieldCheck className="w-4 h-4 text-[#0070E0]" />
             Completed Service Checklist
           </h4>
           <div className="space-y-2">
             {checklist.map((c, idx) => (
               <div
                 key={idx}
-                className="flex items-center gap-2.5 p-2 rounded bg-[#050505] border border-[#242824]/40 text-xs text-[#F4F4EF]"
+                className="flex items-center gap-2.5 p-2 rounded-md bg-[#F8FAFC] border border-[#E2E8F0] text-xs text-[#0A0F1D]"
               >
-                <div className="w-4 h-4 rounded bg-[#8BCF32]/15 border border-[#8BCF32]/40 flex items-center justify-center flex-shrink-0">
-                  <Check className="w-2.5 h-2.5 text-[#8BCF32]" />
+                <div className="w-4 h-4 rounded-full bg-[#E0F2FE] border border-[#0070E0] flex items-center justify-center flex-shrink-0">
+                  <Check className="w-2.5 h-2.5 text-[#0070E0]" />
                 </div>
-                <span className="truncate">{c.item}</span>
+                <span className="truncate font-medium">{c.item}</span>
               </div>
             ))}
           </div>
@@ -117,9 +117,9 @@ export function ServiceReportCard() {
       </div>
 
       {/* Footer Status */}
-      <div className="pt-4 border-t border-[#242824] flex items-center justify-between text-xs text-[#70756D]">
-        <span>Service Status: <strong className="text-[#8BCF32] font-semibold">Completed</strong></span>
-        <span className="text-[11px] text-[#70756D] italic">Standard Creators Aquarium SOP</span>
+      <div className="pt-4 border-t border-[#E2E8F0] flex items-center justify-between text-xs text-[#64748B]">
+        <span>Service Status: <strong className="text-[#0070E0] font-bold">Completed</strong></span>
+        <span className="text-[11px] text-[#64748B] italic">Standard Creators Aquarium Protocol</span>
       </div>
     </div>
   );

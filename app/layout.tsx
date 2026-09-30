@@ -108,9 +108,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-[#050505] text-[#F4F4EF] antialiased selection:bg-[#8BCF32] selection:text-[#050505]">
+      <body className="bg-[#FFFFFF] text-[#0A0F1D] antialiased selection:bg-[#0070E0] selection:text-[#FFFFFF]">
         <QuoteModalProvider>
-          <div className="flex flex-col min-h-screen">
+          <div className="flex flex-col min-h-screen bg-[#FFFFFF]">
             <Navbar />
             <main className="flex-grow pt-[72px]">{children}</main>
             <Footer />
