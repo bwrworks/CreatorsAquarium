@@ -68,7 +68,7 @@ export default function AboutPage() {
 
           <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-[#E2E8F0] bg-[#F1F5F9] shadow-md">
             <Image
-              src="/images/service-maintenance.jpg"
+              src="/images/routine-aquarium-care.jpg"
               alt="Creators Aquarium technician meticulously maintaining a nature aquascape"
               fill
               sizes="(max-width: 768px) 100vw, 700px"

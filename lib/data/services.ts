@@ -24,7 +24,7 @@ export const SERVICES: ServiceItem[] = [
     category: "Freshwater",
     startingPrice: "₹799 / visit",
     priceNote: "Starting from ₹799 for routine visits; ₹1,499 for deep cleaning. Final quote based on tank volume and condition.",
-    image: "/images/service-maintenance.jpg",
+    image: "/images/routine-aquarium-care.jpg",
     shortDescription:
       "Disciplined periodic care, mechanical & biological filtration overhaul, algae scrub, substrate vacuuming, and water chemistry testing.",
     fullDescription:
@@ -145,7 +145,7 @@ export const SERVICES: ServiceItem[] = [
     category: "Relocation",
     startingPrice: "From ₹1,999",
     priceNote: "Starting from. Final quote based on distance, floor level/stairs, tank dimensions and livestock volume.",
-    image: "/images/service-relocation.jpg",
+    image: "/images/safe-aquarium-relocation.jpg",
     shortDescription:
       "Safe, structured tank shifting across Bengaluru. Aerated livestock transit, water salvage, delicate plant preservation, and immediate re-commissioning at the destination.",
     fullDescription:
