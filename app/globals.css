@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-base: #050505;
+  --color-bg-soft: #0A0C0A;
+  --color-surface: #101310;
+  --color-surface-elevated: #151915;
+  
+  --color-brand-green: #8BCF32;
+  --color-brand-green-light: #B4E35A;
+  --color-brand-green-dark: #638F24;
+  
+  --color-text-primary: #F4F4EF;
+  --color-text-secondary: #A3A69F;
+  --color-text-muted: #70756D;
+  
+  --color-border-dark: #242824;
+  --color-border-green: rgba(139, 207, 50, 0.22);
+}
+
+:root {
+  --background: #050505;
+  --background-soft: #0A0C0A;
+  --surface: #101310;
+  --surface-elevated: #151915;
+  --brand-green: #8BCF32;
+  --brand-green-light: #B4E35A;
+  --brand-green-dark: #638F24;
+  --text-primary: #F4F4EF;
+  --text-secondary: #A3A69F;
+  --text-muted: #70756D;
+  --border: #242824;
+  --border-green: rgba(139, 207, 50, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #050505;
+  color: #F4F4EF;
+}
+
+body {
+  background-color: #050505;
+  color: #F4F4EF;
+  font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
+  selection-background-color: #8BCF32;
+  selection-color: #050505;
+}
+
+::selection {
+  background-color: #8BCF32;
+  color: #050505;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #242824;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333833;
+}
