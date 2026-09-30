@@ -49,13 +49,13 @@ export function Navbar() {
               className="flex items-center gap-3.5 group"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-[#E2E8F0] group-hover:border-[#0070E0] transition-colors bg-[#FFFFFF] shadow-xs flex-shrink-0">
+              <div className="relative w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0">
                 <Image
-                  src="/brand/icon.jpg"
-                  alt="Creators Aquarium Mark"
+                  src="/brand/icon.png"
+                  alt="Creators Aquarium"
                   fill
-                  sizes="40px"
-                  className="object-cover"
+                  sizes="48px"
+                  className="object-contain"
                   priority
                 />
               </div>

@@ -14,13 +14,13 @@ export function Footer() {
           {/* Col 1 & 2: Brand & Address */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-3">
-              <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#E2E8F0] bg-[#FFFFFF] shadow-xs">
+              <div className="relative w-11 h-11 flex-shrink-0">
                 <Image
-                  src="/brand/icon.jpg"
+                  src="/brand/icon.png"
                   alt="Creators Aquarium"
                   fill
-                  sizes="40px"
-                  className="object-cover"
+                  sizes="48px"
+                  className="object-contain"
                 />
               </div>
               <div>
@@ -206,7 +206,7 @@ export function Footer() {
         {/* Legal Disclaimers & Compliance Statement */}
         <div className="pt-8 text-[11px] text-[#64748B] space-y-3">
           <p className="leading-relaxed">
-            <strong className="text-[#0A0F1D]">Wildlife Compliance Notice:</strong> In strict accordance with the Wildlife (Protection) Act and Indian ornamental trade directives, Creators Aquarium does not sell, frag, or market live corals. Marine services are strictly fish-only / saltwater systems utilizing legally compliant, properly sourced livestock and natural rock hardscaping.
+            <strong className="text-[#0A0F1D]">Wildlife Compliance Notice:</strong> In strict accordance with the Wildlife (Protection) Act and Indian ornamental trade directives, Creators Aquarium operates exclusively with legally compliant ornamental species. Marine services are strictly fish-only / saltwater systems utilizing legally compliant, properly sourced livestock and natural rock hardscaping.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#E2E8F0]">

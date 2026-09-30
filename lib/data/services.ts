@@ -89,7 +89,7 @@ export const SERVICES: ServiceItem[] = [
     shortDescription:
       "Saltwater fish-only ecosystem management: optical refractometer salinity calibration, protein skimmer maintenance, sump hygiene, and bio-filtration care.",
     fullDescription:
-      "Saltwater environments demand strict discipline. Our marine service is focused on fish-only saltwater systems, maintaining pristine water clarity and stable salinity without the legal complications of live corals.",
+      "Saltwater environments demand strict discipline. Our marine service is focused on fish-only saltwater systems, maintaining pristine water clarity, stable salinity, and optimal bio-filtration with ethical, legal standards.",
     inclusions: [
       "Salinity check & adjustment using optical refractometer (targeted 1.024–1.025 SG)",
       "RO/DI synthetic saltwater preparation and water change",
@@ -99,8 +99,8 @@ export const SERVICES: ServiceItem[] = [
       "Powerhead & wavemaker circulation check",
     ],
     exclusions: [
-      "Live coral sourcing, coral fragging or reef coral trade (strictly prohibited in Phase 1)",
-      "Unregulated or non-compliant marine livestock",
+      "Protected, endangered or non-compliant marine species",
+      "Unregulated wild-caught specimens",
       "Replacement pumps or skimmer motors unless quoted",
     ],
     seoTitle: "Marine Aquarium Maintenance Bangalore | Creators Aquarium",

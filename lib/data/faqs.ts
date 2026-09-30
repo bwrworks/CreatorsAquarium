@@ -31,9 +31,9 @@ export const FAQS: FAQItem[] = [
   },
   {
     category: "Service",
-    question: "Why do you not sell or maintain live corals?",
+    question: "What types of marine (saltwater) aquariums do you set up and maintain?",
     answer:
-      "In India, live corals are strictly protected under the Wildlife (Protection) Act schedules and national fisheries trade restrictions. In strict adherence to Indian environmental law, Creators Aquarium focuses exclusively on freshwater planted aquascapes and marine fish-only systems using legally compliant, sustainably sourced marine livestock.",
+      "In strict adherence to Indian environmental law and the Wildlife (Protection) Act, Creators Aquarium specializes exclusively in freshwater planted aquascapes and marine fish-only systems using legally compliant, sustainably sourced marine livestock and specialized filtration.",
   },
   {
     category: "Process",

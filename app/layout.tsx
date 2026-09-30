@@ -61,6 +61,10 @@ export const metadata: Metadata = {
       },
     ],
   },
+  icons: {
+    icon: "/brand/icon.png",
+    apple: "/brand/icon.png",
+  },
   twitter: {
     card: "summary_large_image",
     title: "Creators Aquarium | Professional Aquarium Care Bengaluru",
@@ -87,7 +91,6 @@ export default function RootLayout({
       "@type": "PostalAddress",
       addressLocality: "Bengaluru",
       addressRegion: "Karnataka",
-      postalCode: "560038",
       addressCountry: "IN",
     },
     geo: {

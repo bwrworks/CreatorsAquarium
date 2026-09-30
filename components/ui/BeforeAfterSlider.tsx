@@ -47,7 +47,7 @@ export function BeforeAfterSlider({
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto">
+    <div className="w-full max-w-[1750px] mx-auto">
       <div
         ref={containerRef}
         onMouseMove={onMouseMove}
@@ -62,7 +62,7 @@ export function BeforeAfterSlider({
             src={afterImage}
             alt={afterAlt}
             fill
-            sizes="(max-width: 1200px) 100vw, 1200px"
+            sizes="(max-width: 1750px) 100vw, 1750px"
             className="object-cover"
             priority
           />
@@ -71,27 +71,19 @@ export function BeforeAfterSlider({
           </div>
         </div>
 
-        {/* BEFORE Image (Clipped overlay) */}
+        {/* BEFORE Image (Clipped overlay using clipPath) */}
         <div
-          className="absolute inset-0 overflow-hidden"
-          style={{ width: `${sliderPos}%` }}
+          className="absolute inset-0"
+          style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
         >
-          <div className="relative w-full h-full min-w-full">
-            <Image
-              src={beforeImage}
-              alt={beforeAlt}
-              fill
-              sizes="(max-width: 1200px) 100vw, 1200px"
-              className="object-cover pointer-events-none"
-              style={{
-                width: containerRef.current
-                  ? `${containerRef.current.clientWidth}px`
-                  : "100%",
-                maxWidth: "none",
-              }}
-              priority
-            />
-          </div>
+          <Image
+            src={beforeImage}
+            alt={beforeAlt}
+            fill
+            sizes="(max-width: 1750px) 100vw, 1750px"
+            className="object-cover pointer-events-none"
+            priority
+          />
           <div className="absolute top-4 left-4 z-10 px-3.5 py-1.5 rounded-md bg-[#0A0F1D]/85 backdrop-blur-md border border-[#CBD5E1] text-[11px] font-bold tracking-wider uppercase text-[#FFFFFF] shadow-sm">
             Before Maintenance
           </div>

@@ -47,10 +47,10 @@ export default function MarineAquariumPage() {
         <div className="p-8 rounded-xl bg-[#E0F2FE]/50 border border-[#BAE6FD] space-y-2">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0070E0]">
             <ShieldAlert className="w-5 h-5 text-[#0070E0]" />
-            <span>Strict Wildlife Act & Coral-Free Compliance</span>
+            <span>Strict Wildlife Act Compliance</span>
           </div>
           <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-            In compliance with India&apos;s Wildlife (Protection) Act schedules and national fisheries regulations prohibiting coral trade and exploitation, Creators Aquarium does not market, sell, frag, or propagate live corals. Our marine services are dedicated strictly to <strong>fish-only saltwater systems</strong> using legally sourced marine fish and natural/macro rock hardscaping.
+            In compliance with India&apos;s Wildlife (Protection) Act schedules and national fisheries regulations, Creators Aquarium adheres strictly to ethical and legally compliant species standards. Our marine services are dedicated strictly to <strong>fish-only saltwater systems</strong> using legally sourced marine fish, high-grade synthetic saltwater, and natural/macro rock hardscaping.
           </p>
         </div>
 

@@ -151,7 +151,7 @@ export default function HomePage() {
                   <span className="text-[#64748B]">Routine visit rate</span>
                 </div>
                 <div>
-                  <span className="block text-[#0A0F1D] font-bold text-base">Zero Coral</span>
+                  <span className="block text-[#0A0F1D] font-bold text-base">100% Legal</span>
                   <span className="text-[#64748B]">Wildlife Act compliant</span>
                 </div>
                 <div>

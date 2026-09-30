@@ -28,7 +28,7 @@ export default function AboutPage() {
     },
     {
       title: "Strict Legal & Environmental Compliance",
-      desc: "We adhere strictly to India's Wildlife (Protection) Act. We never market or sell live corals; marine systems are exclusively fish-only with legal livestock.",
+      desc: "We adhere strictly to India's Wildlife (Protection) Act. We focus on ethical, legal livestock and pristine fish-only saltwater systems.",
       icon: ShieldCheck,
     },
   ];

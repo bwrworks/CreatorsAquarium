@@ -9,7 +9,7 @@ export const BRAND = {
   whatsappNumber: "919206336482",
   email: "care@creatorsaquarium.com",
   city: "Bengaluru, Karnataka, India",
-  address: "Bengaluru, Karnataka 560038",
+  address: "Bengaluru, Karnataka",
   hours: "Monday – Sunday: 9:00 AM – 7:30 PM",
 };
 

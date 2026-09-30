@@ -56,7 +56,7 @@ export default function TermsPage() {
           <section className="space-y-3">
             <h2 className="text-base font-serif text-[#0A0F1D] font-bold">4. Wildlife (Protection) Act Compliance</h2>
             <p>
-              Creators Aquarium operates in strict compliance with India&apos;s Wildlife (Protection) Act schedules and Ministry of Fisheries directives. We strictly prohibit the marketing, sale, trade, fragmentation, or sourcing of live corals and regulated endangered aquatic wildlife. Our marine services are restricted to fish-only saltwater systems utilizing legally compliant livestock and artificial or natural macro rock hardscapes.
+              Creators Aquarium operates in strict compliance with India&apos;s Wildlife (Protection) Act schedules and Ministry of Fisheries directives. We strictly prohibit the marketing, sale, trade, or sourcing of regulated or endangered aquatic wildlife. Our marine services are restricted to fish-only saltwater systems utilizing legally compliant livestock and artificial or natural macro rock hardscapes.
             </p>
           </section>
 
