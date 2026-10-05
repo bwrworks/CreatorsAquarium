@@ -1,9 +1,9 @@
 export const BRAND = {
   name: "Creators Aquarium",
   tagline: "Where Oceans Meet Nature",
-  businessSubtitle: "Professional Aquarium Setup & Maintenance",
+  businessSubtitle: "Custom Aquarium Design, Setup & Maintenance",
   heroDescription:
-    "Thoughtfully designed aquariums and professional ongoing care for homes, offices and commercial spaces across Bengaluru.",
+    "We design, source, build and install complete custom aquariums from 1 ft to 6 ft, then provide disciplined ongoing care across Bengaluru.",
   phone: "+91 9206336482",
   phoneDisplay: "+91 92063 36482",
   whatsappNumber: "919206336482",
@@ -38,7 +38,7 @@ export const BENGALURU_LOCALITIES = [
 
 export function getWhatsAppUrl(message?: string): string {
   const defaultText =
-    "Hi Creators Aquarium, I would like to inquire about professional aquarium setup and maintenance in Bengaluru.";
+    "Hi Creators Aquarium, I would like to inquire about custom aquarium design, setup, or maintenance in Bengaluru.";
   const text = encodeURIComponent(message || defaultText);
   return `https://wa.me/${BRAND.whatsappNumber}?text=${text}`;
 }

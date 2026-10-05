@@ -40,10 +40,11 @@ export function Navbar() {
   }, [pathname]);
 
   const navLinks = [
-    { name: "Services", href: "/services" },
-    { name: "How It Works", href: "/how-it-works" },
+    { name: "Home", href: "/" },
+    { name: "New Setup", href: "/setup" },
+    { name: "Maintenance", href: "/maintenance" },
     { name: "Plans", href: "/maintenance-plans" },
-    { name: "Inspirations", href: "/gallery" },
+    { name: "Gallery", href: "/gallery" },
     { name: "Contact", href: "/contact" },
   ];
 

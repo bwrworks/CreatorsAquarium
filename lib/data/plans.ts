@@ -40,7 +40,7 @@ export const MAINTENANCE_PLANS: PlanTier[] = [
     isRecommended: true,
     features: [
       "2 scheduled visits per month (bi-weekly)",
-      "Full water change & mineral balancing",
+      "Partial water change & mineral balancing",
       "Deep glass detailing & algae management",
       "Comprehensive filter overhaul & impeller check",
       "Water parameter testing (pH, TDS, Nitrate)",
@@ -59,12 +59,12 @@ export const MAINTENANCE_PLANS: PlanTier[] = [
     isRecommended: false,
     features: [
       "2 dedicated aquascaping visits per month",
-      "Surgical plant trimming & contour shaping",
-      "CO2 system calibration & diffuser maintenance",
+      "Botanical plant trimming & contour shaping",
+      "CO2 system calibration & diffuser cleaning",
       "Nutrient dosing review & micro-algae scrub",
       "Comprehensive water chemistry audit",
       "Detailed Planted Tank Service Report",
-      "Seasonal pruning & growth guidance",
+      "Growth and lighting guidance",
     ],
     serviceReportIncluded: true,
   },
@@ -78,32 +78,13 @@ export const MAINTENANCE_PLANS: PlanTier[] = [
     isRecommended: false,
     features: [
       "2 scheduled marine technician visits / month",
-      "Optical refractometer salinity calibration",
-      "RO/DI synthetic saltwater preparation",
+      "Salinity verification & water adjustment",
+      "Synthetic saltwater preparation",
       "Protein skimmer cup & neck overhaul",
       "Sump detritus clearing & filter media rinse",
       "Water testing (Salinity, pH, Ammonia, NO3)",
       "Comprehensive Marine Service Report",
     ],
     serviceReportIncluded: true,
-  },
-];
-
-export const PRICING_PHILOSOPHY = [
-  {
-    title: "Clear Scope",
-    description: "Every task is defined upfront so you know exactly what our technician does on each visit.",
-  },
-  {
-    title: "Transparent Pricing",
-    description: "Honest starting figures with itemized quotes. No arbitrary surcharges or sudden fee changes.",
-  },
-  {
-    title: "Flexible Monthly Plans",
-    description: "Choose between single on-demand visits or flexible recurring monthly care. Simple, predictable scheduling.",
-  },
-  {
-    title: "Zero Forced Checkout",
-    description: "All services are quoted and confirmed after reviewing your tank requirements. Zero cart, zero forced online payments.",
   },
 ];

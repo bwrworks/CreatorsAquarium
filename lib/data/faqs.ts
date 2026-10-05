@@ -48,6 +48,18 @@ export const FAQS: FAQItem[] = [
       "No. Phase 1 of Creators Aquarium operates on an honest, quote-first model with zero online payments, shopping carts, or hidden checkout fees. Payment is settled through verified business UPI or bank transfer only after service scope confirmation.",
   },
   {
+    category: "Pricing",
+    question: "How do you quote new custom aquarium setups?",
+    answer:
+      "Custom aquariums are quoted individually based on tank dimensions (from 1 ft to 6 ft), glass specifications (ultra-clear low-iron glass), custom stand fabrication, filtration design (canister or sump systems), lighting, and hardscape materials. We provide an itemized proposal with zero guesswork before sourcing and fabrication begin.",
+  },
+  {
+    category: "Safety",
+    question: "Can I add fish immediately on installation day?",
+    answer:
+      "We strictly advise against introducing sensitive livestock on installation day. On setup day, we commission the system—conducting leak inspections, hardware tests, plumbing verification, and water conditioning. Aquariums need time to establish their natural biological cycle before introducing fish. We provide a step-by-step handover guide for safe livestock introduction.",
+  },
+  {
     category: "Safety",
     question: "How do you ensure safe fish transport during aquarium relocations?",
     answer:

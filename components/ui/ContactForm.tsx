@@ -18,7 +18,7 @@ export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
 
@@ -33,36 +33,38 @@ export function ContactForm() {
 
     setLoading(true);
 
-    try {
-      const res = await fetch("/api/inquiries", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          phone,
-          locality,
-          tankType,
-          tankSize,
-          service,
-          notes,
-          timestamp: new Date().toISOString(),
-        }),
-      });
+    const messageLines = [
+      `*New Service / Setup Inquiry - Creators Aquarium*`,
+      `*Name:* ${name.trim()}`,
+      `*Phone:* ${phone.trim()}`,
+      email.trim() ? `*Email:* ${email.trim()}` : null,
+      `*Locality:* ${locality}`,
+      `*Service:* ${service}`,
+      `*Aquarium Type:* ${tankType}`,
+      `*Tank Size:* ${tankSize}`,
+      notes.trim() ? `*Notes:* ${notes.trim()}` : null,
+      ``,
+      `_Sent via creatorsaquarium.com contact form_`,
+    ].filter(Boolean);
 
-      if (!res.ok) throw new Error("Submission failed");
-      setSubmitted(true);
-    } catch {
-      setSubmitted(true);
-    } finally {
-      setLoading(false);
-    }
+    const whatsappText = messageLines.join("\n");
+    const waUrl = `https://wa.me/${BRAND.whatsappNumber}?text=${encodeURIComponent(whatsappText)}`;
+
+    // Open WhatsApp directly
+    window.open(waUrl, "_blank");
+    setSubmitted(true);
+    setLoading(false);
   };
 
-  const whatsappQuickMessage = `Hi Creators Aquarium, I'd like a quote for ${encodeURIComponent(
-    service
-  )} in ${encodeURIComponent(locality)}. My tank is ${encodeURIComponent(
-    tankType
-  )} (${encodeURIComponent(tankSize)}).`;
+  const whatsappQuickMessage = [
+    `*Service Inquiry - Creators Aquarium*`,
+    `*Name:* ${name.trim() || "Customer"}`,
+    `*Phone:* ${phone.trim() || "Not provided"}`,
+    `*Locality:* ${locality}`,
+    `*Service:* ${service}`,
+    `*Tank:* ${tankType} (${tankSize})`,
+    notes.trim() ? `*Notes:* ${notes.trim()}` : null,
+  ].filter(Boolean).join("\n");
 
   if (submitted) {
     return (
@@ -71,10 +73,10 @@ export function ContactForm() {
           <CheckCircle2 className="w-6 h-6" />
         </div>
         <h3 className="text-2xl font-serif text-[#F4F4EF] font-bold">
-          Inquiry Received
+          Opening WhatsApp Chat...
         </h3>
         <p className="text-xs sm:text-sm text-[#A3A69F] max-w-sm mx-auto">
-          Thank you, {name}. Our team will review your {locality} aquarium details and contact you via WhatsApp/Phone with an upfront estimate.
+          Thank you, {name}. Your aquarium details have been prepared. If WhatsApp did not open automatically, tap the button below to send your details directly to our team.
         </p>
         <div className="pt-4">
           <a

@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import { CheckCircle2, MessageCircle, Phone, ShieldCheck } from "lucide-react";
-import { MAINTENANCE_PLANS, PRICING_PHILOSOPHY } from "@/lib/data/plans";
+import { MAINTENANCE_PLANS } from "@/lib/data/plans";
 import { BRAND, getWhatsAppUrl } from "@/lib/constants";
 import { OpenQuoteModalButton } from "@/components/ui/OpenQuoteModalButton";
 import { generateBreadcrumbSchema, BASE_URL } from "@/lib/seo";
@@ -178,30 +178,14 @@ export default function MaintenancePlansPage() {
           </OpenQuoteModalButton>
         </div>
 
-        {/* Pricing Philosophy Section */}
-        <div className="space-y-8 pt-8 border-t border-[#242824]">
-          <div className="text-center max-w-3xl mx-auto">
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#8BCF32]">
-              TRANSPARENCY FIRST
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-serif text-[#F4F4EF] mt-1 font-bold">
-              Our Transparent Service Standards
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {PRICING_PHILOSOPHY.map((item, idx) => (
-              <div key={idx} className="p-6 rounded-xl bg-[#0A0C0A] border border-[#242824] space-y-2">
-                <ShieldCheck className="w-5 h-5 text-[#8BCF32]" />
-                <h3 className="text-sm font-bold uppercase tracking-wider text-[#F4F4EF]">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-[#A3A69F] leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
+        {/* Simple Transparency Statement */}
+        <div className="p-6 rounded-xl bg-[#0A0C0A] border border-[#242824] text-center max-w-2xl mx-auto space-y-2">
+          <p className="text-xs sm:text-sm text-[#F4F4EF] font-medium">
+            Flexible monthly plans. Final scope and pricing are confirmed before service.
+          </p>
+          <p className="text-[11px] text-[#70756D]">
+            Cancel or pause anytime with simple advance notice. Zero hidden fees.
+          </p>
         </div>
 
         {/* CTAs */}

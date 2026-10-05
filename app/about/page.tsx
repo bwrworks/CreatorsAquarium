@@ -106,16 +106,16 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-4 text-xs sm:text-sm text-[#A3A69F] leading-relaxed">
               <h2 className="text-2xl sm:text-3xl font-serif text-[#F4F4EF] font-bold">
-                &ldquo;Beautiful tanks are maintained, not wished into existence.&rdquo;
+                &ldquo;Beautiful aquariums are designed thoughtfully and maintained with discipline.&rdquo;
               </h2>
               <p>
-                In Bengaluru, aquarium owners frequently encounter informal cleaners who scrub glass with abrasive pads, dump 90% of the water, and crash the tank&apos;s biological balance—leaving fish stressed and plants deteriorating.
+                In Bengaluru, aquarium owners frequently encounter either shops selling generic tanks with zero follow-through, or informal cleaners who crash the tank&apos;s biological balance—leaving fish stressed and plants deteriorating.
               </p>
               <p>
-                <strong className="text-[#F4F4EF]">Creators Aquarium</strong> was established to change this paradigm. We treat aquariums as delicate living ecosystems requiring calibrated water chemistry, balanced lighting photoperiods, and horticultural pruning standards.
+                <strong className="text-[#F4F4EF]">Creators Aquarium</strong> was established to change this paradigm. We design, source, build, and install complete custom aquariums from 1 ft to 6 ft, then provide disciplined ongoing care.
               </p>
               <p>
-                From custom 5-foot rimless nature aquascapes in private residences to scheduled office display maintenance, our technicians follow strict SOPs and deliver documented accountability after every visit.
+                From bespoke rimless low-iron glass setups in luxury residences to scheduled office display maintenance, our technicians follow strict SOPs and deliver documented accountability after every visit.
               </p>
             </div>
 

@@ -28,11 +28,11 @@ export const metadata: Metadata = {
     canonical: "https://creatorsaquarium.com",
   },
   title: {
-    default: "Creators Aquarium | Professional Aquarium Setup & Maintenance Bengaluru",
+    default: "Creators Aquarium | Custom Aquarium Design, Setup & Maintenance Bengaluru",
     template: "%s | Creators Aquarium",
   },
   description:
-    "Premium aquarium setup, routine maintenance, and nature aquascaping across Bengaluru. Water parameter testing, filter care, and scheduled AMCs for homes and offices.",
+    "We design, source, build and install complete custom aquariums from 1 ft to 6 ft, then provide disciplined ongoing maintenance across Bengaluru.",
   keywords: [
     "aquarium maintenance Bangalore",
     "fish tank cleaning Bengaluru",
@@ -73,16 +73,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: "https://creatorsaquarium.com",
-    title: "Creators Aquarium | Where Oceans Meet Nature",
+    title: "Creators Aquarium | Custom Aquarium Design, Setup & Maintenance",
     description:
-      "Thoughtfully designed aquariums and professional ongoing care for homes, offices and commercial spaces across Bengaluru.",
+      "We design, source, build and install complete custom aquariums from 1 ft to 6 ft, then provide disciplined ongoing care across Bengaluru.",
     siteName: "Creators Aquarium",
     images: [
       {
         url: "https://creatorsaquarium.com/images/hero.jpg",
         width: 1200,
         height: 675,
-        alt: "Creators Aquarium Bengaluru Luxury Planted Setup",
+        alt: "Creators Aquarium Bengaluru Custom Planted & Marine Aquariums",
       },
     ],
   },
@@ -92,9 +92,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Creators Aquarium | Professional Aquarium Care Bengaluru",
+    title: "Creators Aquarium | Custom Aquarium Design & Care Bengaluru",
     description:
-      "Disciplined aquarium maintenance, water testing, and turnkey aquascaping for residences and offices in Bengaluru.",
+      "We design, source, build and install complete custom aquariums from 1 ft to 6 ft, then provide disciplined ongoing care across Bengaluru.",
     images: ["https://creatorsaquarium.com/images/hero.jpg"],
   },
   other: {

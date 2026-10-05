@@ -1,35 +1,85 @@
 "use client";
 
-import React, { useState } from "react";
-import { X, CheckCircle2, MessageCircle, ArrowRight, Loader2, Camera, UploadCloud } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { X, CheckCircle2, MessageCircle, ArrowRight, Sparkles, Wrench } from "lucide-react";
 import { useQuoteModal } from "@/components/context/QuoteModalContext";
 import { BENGALURU_LOCALITIES, BRAND, getWhatsAppUrl } from "@/lib/constants";
 
 export function QuoteModal() {
   const { isOpen, closeQuoteModal, selectedService, selectedTankType } = useQuoteModal();
 
+  const [mode, setMode] = useState<"setup" | "maintenance">("setup");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [locality, setLocality] = useState(BENGALURU_LOCALITIES[0]);
-  const [tankSize, setTankSize] = useState("3 ft (approx 120–160 L)");
-  const [tankType, setTankType] = useState(selectedTankType || "Freshwater");
-  const [service, setService] = useState(selectedService || "AQUARIUM MAINTENANCE");
-  const [photoName, setPhotoName] = useState<string | null>(null);
-  const [notes, setNotes] = useState("");
 
-  const [loading, setLoading] = useState(false);
+  // Setup Specific Fields
+  const [tankSize, setTankSize] = useState("3 FT");
+  const [aquariumType, setAquariumType] = useState("Planted");
+  const [existingTankStatus, setExistingTankStatus] = useState("I need everything");
+  const [needCabinet, setNeedCabinet] = useState("Yes");
+  const [setupStyle, setSetupStyle] = useState("Nature Aquascape");
+  const [budgetRange, setBudgetRange] = useState("₹25,000–₹50,000");
+
+  // Maintenance Specific Fields
+  const [maintenanceService, setMaintenanceService] = useState("Routine Maintenance (from ₹799)");
+  const [tankCondition, setTankCondition] = useState("Moderate algae / needs cleaning");
+  const [serviceCadence, setServiceCadence] = useState("One-time visit");
+
+  const [notes, setNotes] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  // Sync mode with trigger service
+  useEffect(() => {
+    if (selectedService) {
+      const isSetup =
+        selectedService.toUpperCase().includes("SETUP") ||
+        selectedService.toUpperCase().includes("DESIGN") ||
+        selectedService.toUpperCase().includes("BUILD");
+      setMode(isSetup ? "setup" : "maintenance");
+    }
+    if (selectedTankType) {
+      setTankSize(selectedTankType);
+    }
+  }, [selectedService, selectedTankType]);
+
+  // Reset state when opened
+  useEffect(() => {
+    if (isOpen) {
+      setSubmitted(false);
+      setErrorMessage("");
+    }
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
-  const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setPhotoName(e.target.files[0].name);
+  const buildWhatsAppMessage = () => {
+    if (mode === "setup") {
+      return `Hi Creators Aquarium, I'd like a design consultation for a new custom aquarium setup in Bengaluru.
+Name: ${name}
+Area: ${locality}
+Tank Size: ${tankSize}
+Aquarium Type: ${aquariumType}
+Tank Status: ${existingTankStatus}
+Cabinet Required: ${needCabinet}
+Preferred Style: ${setupStyle}
+Approx Budget: ${budgetRange}
+${notes ? `Notes: ${notes}\n` : ""}I will share room/space photos here on WhatsApp.`;
+    } else {
+      return `Hi Creators Aquarium, I would like to request an aquarium maintenance quote in Bengaluru.
+Name: ${name}
+Area: ${locality}
+Service: ${maintenanceService}
+Tank Size: ${tankSize}
+Aquarium Type: ${aquariumType}
+Condition: ${tankCondition}
+Frequency: ${serviceCadence}
+${notes ? `Notes: ${notes}\n` : ""}I will share photos of my tank here on WhatsApp.`;
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage("");
 
@@ -39,91 +89,92 @@ export function QuoteModal() {
     }
 
     if (!phone.trim() || phone.trim().length < 10) {
-      setErrorMessage("Please enter a valid 10-digit WhatsApp or mobile number.");
+      setErrorMessage("Please provide a valid 10-digit WhatsApp or mobile number.");
       return;
     }
 
-    setLoading(true);
+    const message = buildWhatsAppMessage();
+    const waUrl = getWhatsAppUrl(message);
 
-    try {
-      const payload = {
-        name,
-        phone,
-        locality,
-        tankType,
-        tankSize,
-        service,
-        hasPhoto: !!photoName,
-        photoName: photoName || "Not attached (can send via WhatsApp)",
-        notes,
-        timestamp: new Date().toISOString(),
-      };
-
-      const res = await fetch("/api/inquiries", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!res.ok) {
-        throw new Error("Unable to save inquiry");
-      }
-
-      setSubmitted(true);
-    } catch {
-      // Fallback: Proceed to confirmation with direct WhatsApp handover
-      setSubmitted(true);
-    } finally {
-      setLoading(false);
-    }
+    // Open WhatsApp directly
+    window.open(waUrl, "_blank", "noopener,noreferrer");
+    setSubmitted(true);
   };
 
-  const whatsAppDirectMessage = `Hi Creators Aquarium, I submitted a service quote request:%0A- Name: ${encodeURIComponent(
-    name
-  )}%0A- Phone: ${encodeURIComponent(phone)}%0A- Locality: ${encodeURIComponent(
-    locality
-  )}%0A- Tank: ${encodeURIComponent(tankType)} (${encodeURIComponent(
-    tankSize
-  )})%0A- Service: ${encodeURIComponent(service)}${
-    photoName ? `%0A- Tank Photo: Attached on device` : ""
-  }${notes ? `%0A- Notes: ${encodeURIComponent(notes)}` : ""}`;
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#050505]/85 backdrop-blur-md overflow-y-auto">
-      <div className="relative w-full max-w-lg rounded-xl bg-[#0A0C0A] border border-[#242824] p-6 sm:p-8 shadow-2xl my-8 text-[#F4F4EF]">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
+      onClick={closeQuoteModal}
+    >
+      <div
+        className="relative w-full max-w-xl max-h-[92vh] overflow-y-auto bg-[#0A0C0A] border border-[#242824] rounded-2xl shadow-2xl p-6 sm:p-8 text-[#F4F4EF]"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Close Button */}
         <button
           type="button"
           onClick={closeQuoteModal}
-          className="absolute top-4 right-4 p-2 text-[#70756D] hover:text-[#F4F4EF] rounded-md hover:bg-[#151915] transition-colors"
-          aria-label="Close modal"
+          className="absolute top-5 right-5 p-2 rounded-lg bg-[#101310] border border-[#242824] text-[#A3A69F] hover:text-[#F4F4EF] hover:border-[#8BCF32]/50 transition-colors cursor-pointer"
+          aria-label="Close quote modal"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4" />
         </button>
 
         {!submitted ? (
-          <div>
-            <div className="mb-6">
-              <span className="text-[10px] uppercase font-bold tracking-[0.14em] text-[#8BCF32]">
-                BENGALURU AQUARIUM CARE
+          <div className="space-y-6">
+            {/* Header */}
+            <div className="space-y-2 pr-8">
+              <span className="text-[10px] uppercase font-bold tracking-[0.14em] text-[#8BCF32] block">
+                CREATORS AQUARIUM · BENGALURU
               </span>
-              <h2 className="text-xl sm:text-2xl font-serif text-[#F4F4EF] mt-1 font-bold">
-                Request a Service Quote
+              <h2 className="text-2xl font-serif font-bold text-[#F4F4EF]">
+                {mode === "setup" ? "New Aquarium Design Consultation" : "Schedule Aquarium Maintenance"}
               </h2>
-              <p className="text-xs text-[#A3A69F] mt-1">
-                Zero online payment. We review your tank requirements and confirm an upfront quote.
+              <p className="text-xs text-[#A3A69F]">
+                {mode === "setup"
+                  ? "Share your room space vision. We design, source, build, and install the complete aquarium."
+                  : "Transparent, disciplined upkeep for freshwater, planted, and marine fish-only systems."}
               </p>
             </div>
 
+            {/* Mode Selector Toggle */}
+            <div className="grid grid-cols-2 gap-2 p-1 rounded-lg bg-[#101310] border border-[#242824]">
+              <button
+                type="button"
+                onClick={() => setMode("setup")}
+                className={`py-2 px-3 rounded-md text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                  mode === "setup"
+                    ? "bg-[#8BCF32] text-[#050505] shadow-xs"
+                    : "text-[#A3A69F] hover:text-[#F4F4EF]"
+                }`}
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>New Setup</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setMode("maintenance")}
+                className={`py-2 px-3 rounded-md text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                  mode === "maintenance"
+                    ? "bg-[#8BCF32] text-[#050505] shadow-xs"
+                    : "text-[#A3A69F] hover:text-[#F4F4EF]"
+                }`}
+              >
+                <Wrench className="w-3.5 h-3.5" />
+                <span>Maintenance</span>
+              </button>
+            </div>
+
             {errorMessage && (
-              <div className="mb-4 p-3 rounded-md bg-red-950/40 border border-red-800 text-xs text-red-300">
+              <div className="p-3 rounded-md bg-red-950/40 border border-red-800 text-xs text-red-300">
                 {errorMessage}
               </div>
             )}
 
             <form onSubmit={handleSubmit} className="space-y-4">
-              {/* 1. Name & WhatsApp */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Contact Info */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div>
                   <label className="block text-[11px] uppercase tracking-wider font-semibold text-[#A3A69F] mb-1">
                     Your Name <span className="text-[#8BCF32]">*</span>
@@ -133,13 +184,14 @@ export function QuoteModal() {
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="e.g. Ramesh Kumar"
-                    className="w-full px-3 py-2 rounded-md bg-[#101310] border border-[#242824] text-xs text-[#F4F4EF] focus:outline-none focus:border-[#8BCF32] focus:ring-1 focus:ring-[#8BCF32] transition-colors placeholder-[#70756D]"
+                    placeholder="e.g. Anand Rao"
+                    className="w-full px-3 py-2 rounded-md bg-[#101310] border border-[#242824] text-xs text-[#F4F4EF] focus:outline-none focus:border-[#8BCF32] transition-colors"
                   />
                 </div>
+
                 <div>
                   <label className="block text-[11px] uppercase tracking-wider font-semibold text-[#A3A69F] mb-1">
-                    WhatsApp / Mobile <span className="text-[#8BCF32]">*</span>
+                    WhatsApp Number <span className="text-[#8BCF32]">*</span>
                   </label>
                   <input
                     type="tel"
@@ -147,190 +199,296 @@ export function QuoteModal() {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="10-digit number"
-                    className="w-full px-3 py-2 rounded-md bg-[#101310] border border-[#242824] text-xs text-[#F4F4EF] focus:outline-none focus:border-[#8BCF32] focus:ring-1 focus:ring-[#8BCF32] transition-colors placeholder-[#70756D]"
+                    className="w-full px-3 py-2 rounded-md bg-[#101310] border border-[#242824] text-xs text-[#F4F4EF] focus:outline-none focus:border-[#8BCF32] transition-colors"
                   />
                 </div>
               </div>
 
-              {/* 2. Bengaluru Area & Service */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-[11px] uppercase tracking-wider font-semibold text-[#A3A69F] mb-1">
-                    Bengaluru Area <span className="text-[#8BCF32]">*</span>
-                  </label>
-                  <select
-                    value={locality}
-                    onChange={(e) => setLocality(e.target.value)}
-                    className="w-full px-3 py-2 rounded-md bg-[#101310] border border-[#242824] text-xs text-[#F4F4EF] focus:outline-none focus:border-[#8BCF32] transition-colors"
-                  >
-                    {BENGALURU_LOCALITIES.map((loc) => (
-                      <option key={loc} value={loc}>
-                        {loc}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-[11px] uppercase tracking-wider font-semibold text-[#A3A69F] mb-1">
-                    Service Required
-                  </label>
-                  <select
-                    value={service}
-                    onChange={(e) => setService(e.target.value)}
-                    className="w-full px-3 py-2 rounded-md bg-[#101310] border border-[#242824] text-xs text-[#F4F4EF] focus:outline-none focus:border-[#8BCF32] transition-colors"
-                  >
-                    <option value="AQUARIUM MAINTENANCE">Routine Maintenance (from ₹799)</option>
-                    <option value="DEEP CLEANING">Deep Clean & Filter Overhaul (from ₹1,499)</option>
-                    <option value="PLANTED AQUARIUM CARE">Planted Aquarium Care (from ₹1,499)</option>
-                    <option value="MARINE FISH-ONLY CARE">Marine Fish-Only Care (from ₹2,499)</option>
-                    <option value="SETUP & INSTALLATION">New Setup & Installation</option>
-                    <option value="RELOCATION">Aquarium Relocation</option>
-                    <option value="MONTHLY AMC PLAN">Monthly AMC Plan Inquiry</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* 3. Tank Size & Type */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-[11px] uppercase tracking-wider font-semibold text-[#A3A69F] mb-1">
-                    Tank Size
-                  </label>
-                  <select
-                    value={tankSize}
-                    onChange={(e) => setTankSize(e.target.value)}
-                    className="w-full px-3 py-2 rounded-md bg-[#101310] border border-[#242824] text-xs text-[#F4F4EF] focus:outline-none focus:border-[#8BCF32] transition-colors"
-                  >
-                    <option value="2 ft (approx 60–80 L)">2 ft (approx 60–80 Litres)</option>
-                    <option value="3 ft (approx 120–160 L)">3 ft (approx 120–160 Litres)</option>
-                    <option value="4 ft (approx 200–280 L)">4 ft (approx 200–280 Litres)</option>
-                    <option value="5+ ft (Large / Sump System)">5+ ft Large / Sump System</option>
-                    <option value="Custom Display">Custom / Commercial Display</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-[11px] uppercase tracking-wider font-semibold text-[#A3A69F] mb-1">
-                    Aquarium Type
-                  </label>
-                  <select
-                    value={tankType}
-                    onChange={(e) => setTankType(e.target.value)}
-                    className="w-full px-3 py-2 rounded-md bg-[#101310] border border-[#242824] text-xs text-[#F4F4EF] focus:outline-none focus:border-[#8BCF32] transition-colors"
-                  >
-                    <option value="Freshwater">Freshwater Community</option>
-                    <option value="Planted">Planted / Aquascape</option>
-                    <option value="Marine">Marine Fish-Only (Saltwater)</option>
-                    <option value="Cichlid">African / American Cichlid</option>
-                    <option value="New Setup">Planning a New Aquarium</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* 4. Tank Photo Upload Option */}
-              <div>
-                <label className="block text-[11px] uppercase tracking-wider font-semibold text-[#A3A69F] mb-1 flex items-center justify-between">
-                  <span>Tank Photo (Optional)</span>
-                  <span className="text-[10px] text-[#70756D]">Accelerates quotation</span>
-                </label>
-                <div className="relative border border-dashed border-[#242824] hover:border-[#8BCF32]/60 rounded-md p-3 text-center bg-[#101310]/50 transition-colors">
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handlePhotoChange}
-                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                  />
-                  <div className="flex items-center justify-center gap-2 text-xs text-[#A3A69F]">
-                    {photoName ? (
-                      <>
-                        <Camera className="w-4 h-4 text-[#8BCF32]" />
-                        <span className="text-[#8BCF32] font-medium truncate max-w-xs">{photoName}</span>
-                      </>
-                    ) : (
-                      <>
-                        <UploadCloud className="w-4 h-4 text-[#8BCF32]" />
-                        <span>Click to attach tank photo, or share via WhatsApp after submitting</span>
-                      </>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* 5. Notes */}
               <div>
                 <label className="block text-[11px] uppercase tracking-wider font-semibold text-[#A3A69F] mb-1">
-                  Notes / Particular Issue (Optional)
+                  Bengaluru Locality <span className="text-[#8BCF32]">*</span>
+                </label>
+                <select
+                  value={locality}
+                  onChange={(e) => setLocality(e.target.value)}
+                  className="w-full px-3 py-2 rounded-md bg-[#101310] border border-[#242824] text-xs text-[#F4F4EF] focus:outline-none focus:border-[#8BCF32] transition-colors"
+                >
+                  {BENGALURU_LOCALITIES.map((loc) => (
+                    <option key={loc} value={loc}>
+                      {loc}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Dynamic Fields for Mode A: NEW SETUP */}
+              {mode === "setup" && (
+                <div className="space-y-3.5 pt-1 border-t border-[#242824]">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div>
+                      <label className="block text-[11px] uppercase tracking-wider font-semibold text-[#A3A69F] mb-1">
+                        Tank Size
+                      </label>
+                      <select
+                        value={tankSize}
+                        onChange={(e) => setTankSize(e.target.value)}
+                        className="w-full px-3 py-2 rounded-md bg-[#101310] border border-[#242824] text-xs text-[#F4F4EF] focus:outline-none focus:border-[#8BCF32] transition-colors"
+                      >
+                        <option value="1 FT">1 FT (Nano Desktop)</option>
+                        <option value="2 FT">2 FT (Compact Home)</option>
+                        <option value="3 FT">3 FT (Mid-Size Feature)</option>
+                        <option value="4 FT">4 FT (Statement Display)</option>
+                        <option value="5 FT">5 FT (Large Format)</option>
+                        <option value="6 FT">6 FT (Oversized Luxury)</option>
+                        <option value="CUSTOM">Custom Architectural</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-[11px] uppercase tracking-wider font-semibold text-[#A3A69F] mb-1">
+                        Aquarium Type
+                      </label>
+                      <select
+                        value={aquariumType}
+                        onChange={(e) => setAquariumType(e.target.value)}
+                        className="w-full px-3 py-2 rounded-md bg-[#101310] border border-[#242824] text-xs text-[#F4F4EF] focus:outline-none focus:border-[#8BCF32] transition-colors"
+                      >
+                        <option value="Freshwater">Freshwater Community</option>
+                        <option value="Planted">Planted Nature Aquascape</option>
+                        <option value="Marine Fish-Only">Marine Fish-Only (Saltwater)</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div>
+                      <label className="block text-[11px] uppercase tracking-wider font-semibold text-[#A3A69F] mb-1">
+                        Do you have a tank?
+                      </label>
+                      <select
+                        value={existingTankStatus}
+                        onChange={(e) => setExistingTankStatus(e.target.value)}
+                        className="w-full px-3 py-2 rounded-md bg-[#101310] border border-[#242824] text-xs text-[#F4F4EF] focus:outline-none focus:border-[#8BCF32] transition-colors"
+                      >
+                        <option value="I need everything">I need everything (Turnkey)</option>
+                        <option value="I already have the tank">I have the tank, need equipment/scape</option>
+                        <option value="I have tank and equipment">I have tank + equipment, need setup/scape</option>
+                        <option value="I need redesign / upgrade">I need a redesign / upgrade</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-[11px] uppercase tracking-wider font-semibold text-[#A3A69F] mb-1">
+                        Need Cabinet / Stand?
+                      </label>
+                      <select
+                        value={needCabinet}
+                        onChange={(e) => setNeedCabinet(e.target.value)}
+                        className="w-full px-3 py-2 rounded-md bg-[#101310] border border-[#242824] text-xs text-[#F4F4EF] focus:outline-none focus:border-[#8BCF32] transition-colors"
+                      >
+                        <option value="Yes">Yes, custom cabinet required</option>
+                        <option value="No">No, placing on existing reinforced furniture</option>
+                        <option value="Not sure">Not sure, need assessment</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div>
+                      <label className="block text-[11px] uppercase tracking-wider font-semibold text-[#A3A69F] mb-1">
+                        Preferred Style
+                      </label>
+                      <select
+                        value={setupStyle}
+                        onChange={(e) => setSetupStyle(e.target.value)}
+                        className="w-full px-3 py-2 rounded-md bg-[#101310] border border-[#242824] text-xs text-[#F4F4EF] focus:outline-none focus:border-[#8BCF32] transition-colors"
+                      >
+                        <option value="Nature Aquascape">Nature Aquascape (Iwagumi/Driftwood)</option>
+                        <option value="Minimal Clean">Minimal Clean Display</option>
+                        <option value="Dense Dutch Planted">Lush Stem Planted Layout</option>
+                        <option value="Cichlid Biotope">Rocky Cichlid Biotope</option>
+                        <option value="Marine FOWLR">Marine Fish-Only (Live Rock)</option>
+                        <option value="Custom Vision">Custom Architectural Concept</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-[11px] uppercase tracking-wider font-semibold text-[#A3A69F] mb-1">
+                        Approximate Budget (Optional)
+                      </label>
+                      <select
+                        value={budgetRange}
+                        onChange={(e) => setBudgetRange(e.target.value)}
+                        className="w-full px-3 py-2 rounded-md bg-[#101310] border border-[#242824] text-xs text-[#F4F4EF] focus:outline-none focus:border-[#8BCF32] transition-colors"
+                      >
+                        <option value="Under ₹25,000">Under ₹25,000</option>
+                        <option value="₹25,000–₹50,000">₹25,000–₹50,000</option>
+                        <option value="₹50,000–₹1,00,000">₹50,000–₹1,00,000</option>
+                        <option value="₹1,00,000+">₹1,00,000+</option>
+                        <option value="Not sure">Not sure, quote recommended specs</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Dynamic Fields for Mode B: MAINTENANCE */}
+              {mode === "maintenance" && (
+                <div className="space-y-3.5 pt-1 border-t border-[#242824]">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div>
+                      <label className="block text-[11px] uppercase tracking-wider font-semibold text-[#A3A69F] mb-1">
+                        Service Requested
+                      </label>
+                      <select
+                        value={maintenanceService}
+                        onChange={(e) => setMaintenanceService(e.target.value)}
+                        className="w-full px-3 py-2 rounded-md bg-[#101310] border border-[#242824] text-xs text-[#F4F4EF] focus:outline-none focus:border-[#8BCF32] transition-colors"
+                      >
+                        <option value="Routine Maintenance (from ₹799)">Routine Maintenance (from ₹799)</option>
+                        <option value="Deep Clean & Overhaul (from ₹1,499)">Deep Clean & Overhaul (from ₹1,499)</option>
+                        <option value="Planted Care & Trimming (from ₹1,499)">Planted Care & Trimming (from ₹1,499)</option>
+                        <option value="Marine Fish-Only Care (from ₹2,499)">Marine Fish-Only Care (from ₹2,499)</option>
+                        <option value="Aquarium Relocation (from ₹1,999)">Aquarium Relocation (from ₹1,999)</option>
+                        <option value="Monthly AMC Plan Consultation">Monthly AMC Plan Consultation</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-[11px] uppercase tracking-wider font-semibold text-[#A3A69F] mb-1">
+                        Tank Size & Type
+                      </label>
+                      <select
+                        value={tankSize}
+                        onChange={(e) => setTankSize(e.target.value)}
+                        className="w-full px-3 py-2 rounded-md bg-[#101310] border border-[#242824] text-xs text-[#F4F4EF] focus:outline-none focus:border-[#8BCF32] transition-colors"
+                      >
+                        <option value="2 ft">2 ft (approx 60–80L)</option>
+                        <option value="3 ft">3 ft (approx 120–160L)</option>
+                        <option value="4 ft">4 ft (approx 200–280L)</option>
+                        <option value="5+ ft">5+ ft Large Display / Sump</option>
+                        <option value="Custom Size">Custom / Commercial Display</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div>
+                      <label className="block text-[11px] uppercase tracking-wider font-semibold text-[#A3A69F] mb-1">
+                        Current Condition
+                      </label>
+                      <select
+                        value={tankCondition}
+                        onChange={(e) => setTankCondition(e.target.value)}
+                        className="w-full px-3 py-2 rounded-md bg-[#101310] border border-[#242824] text-xs text-[#F4F4EF] focus:outline-none focus:border-[#8BCF32] transition-colors"
+                      >
+                        <option value="Normal routine upkeep">Normal routine upkeep needed</option>
+                        <option value="Moderate algae on glass/decor">Moderate algae on glass/decor</option>
+                        <option value="Heavy algae / cloudy water">Heavy algae / cloudy water overhaul</option>
+                        <option value="Filter clogged / equipment noise">Filter clogged / equipment noise</option>
+                        <option value="Recently moved / needs restart">Recently moved / needs restart</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-[11px] uppercase tracking-wider font-semibold text-[#A3A69F] mb-1">
+                        Preferred Frequency
+                      </label>
+                      <select
+                        value={serviceCadence}
+                        onChange={(e) => setServiceCadence(e.target.value)}
+                        className="w-full px-3 py-2 rounded-md bg-[#101310] border border-[#242824] text-xs text-[#F4F4EF] focus:outline-none focus:border-[#8BCF32] transition-colors"
+                      >
+                        <option value="One-time visit">One-time visit</option>
+                        <option value="Standard AMC (2 visits/mo)">Standard AMC (2 visits/month)</option>
+                        <option value="Essential AMC (1 visit/mo)">Essential AMC (1 visit/month)</option>
+                        <option value="Weekly care (Commercial)">Weekly care (Commercial SLA)</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Notes / Photos guidance */}
+              <div>
+                <label className="block text-[11px] uppercase tracking-wider font-semibold text-[#A3A69F] mb-1">
+                  Notes & Room Details (Optional)
                 </label>
                 <textarea
                   rows={2}
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  placeholder="e.g. Algae buildup, plant trimming needed, noisy filter, or relocation date"
+                  placeholder={
+                    mode === "setup"
+                      ? "Describe room placement, space dimensions, or specific fish you want to keep..."
+                      : "Mention any filter issues, specific algae challenges, or preferred visiting times..."
+                  }
                   className="w-full px-3 py-2 rounded-md bg-[#101310] border border-[#242824] text-xs text-[#F4F4EF] focus:outline-none focus:border-[#8BCF32] transition-colors placeholder-[#70756D]"
                 />
+              </div>
+
+              {/* WhatsApp Photo Handoff Guidance */}
+              <div className="p-3 rounded-lg bg-[#151915] border border-[#242824] text-xs text-[#A3A69F] flex items-center gap-2.5">
+                <MessageCircle className="w-4 h-4 text-[#8BCF32] flex-shrink-0" />
+                <span>
+                  After clicking below, you can share photos of your room space or tank directly on WhatsApp for an itemized estimate.
+                </span>
               </div>
 
               {/* Submit Button */}
               <div className="pt-2">
                 <button
                   type="submit"
-                  disabled={loading}
-                  className="w-full py-3 px-4 rounded-md bg-[#8BCF32] hover:bg-[#B4E35A] active:bg-[#638F24] text-[#050505] text-xs font-bold tracking-wider uppercase transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-[0_2px_12px_rgba(139,207,50,0.2)] disabled:opacity-50"
+                  className="w-full py-3.5 px-4 rounded-md bg-[#8BCF32] hover:bg-[#B4E35A] active:bg-[#638F24] text-[#050505] text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-[0_2px_16px_rgba(139,207,50,0.25)]"
                 >
-                  {loading ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                      <span>Submitting Quote Request...</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>Submit Request for Estimate</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </>
-                  )}
+                  <MessageCircle className="w-4 h-4" />
+                  <span>
+                    {mode === "setup" ? "Request Setup Consultation on WhatsApp" : "Request Maintenance on WhatsApp"}
+                  </span>
+                  <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
 
-              <div className="text-center text-[11px] text-[#70756D]">
-                Zero online payment required. Call / WhatsApp: <strong className="text-[#F4F4EF]">{BRAND.phoneDisplay}</strong>
+              <div className="text-center text-[10px] text-[#70756D]">
+                Direct WhatsApp handoff · Itemized quote confirmed before service · Call: <strong className="text-[#F4F4EF]">{BRAND.phoneDisplay}</strong>
               </div>
             </form>
           </div>
         ) : (
-          /* Submission Confirmation */
-          <div className="text-center py-6">
-            <div className="w-12 h-12 rounded-full bg-[#151915] border border-[#8BCF32] flex items-center justify-center mx-auto mb-4 text-[#8BCF32]">
+          /* Confirmation Screen */
+          <div className="text-center py-8 space-y-5">
+            <div className="w-12 h-12 rounded-full bg-[#151915] border border-[#8BCF32] flex items-center justify-center mx-auto text-[#8BCF32]">
               <CheckCircle2 className="w-6 h-6" />
             </div>
 
-            <span className="text-[11px] uppercase tracking-widest text-[#8BCF32] font-bold">
-              REQUEST REGISTERED
-            </span>
-            <h3 className="text-xl font-serif text-[#F4F4EF] mt-1 mb-2 font-bold">
-              Thank You, {name || "Aquarist"}
-            </h3>
-            <p className="text-xs text-[#A3A69F] max-w-sm mx-auto mb-6">
-              Our team has logged your requirements for <strong>{locality}</strong>. We will review your tank specs and send an upfront quotation to your phone.
-            </p>
+            <div className="space-y-1">
+              <h3 className="text-2xl font-serif text-[#F4F4EF] font-bold">
+                WhatsApp Dispatch Ready
+              </h3>
+              <p className="text-xs sm:text-sm text-[#A3A69F] max-w-sm mx-auto">
+                Thank you, {name}. If WhatsApp did not open automatically, click the button below to send your {locality} inquiry and attach your photos.
+              </p>
+            </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <div className="pt-2">
               <a
-                href={`https://wa.me/${BRAND.whatsappNumber}?text=${whatsAppDirectMessage}`}
+                href={getWhatsAppUrl(buildWhatsAppMessage())}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-md bg-[#8BCF32] text-[#050505] text-xs font-bold tracking-wider uppercase hover:bg-[#B4E35A] transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md bg-[#8BCF32] hover:bg-[#B4E35A] text-[#050505] text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
               >
                 <MessageCircle className="w-4 h-4" />
-                <span>Send on WhatsApp Now</span>
+                <span>Continue to WhatsApp Chat</span>
               </a>
-
-              <button
-                type="button"
-                onClick={closeQuoteModal}
-                className="px-5 py-2.5 rounded-md bg-[#101310] border border-[#242824] text-xs font-semibold text-[#F4F4EF] hover:bg-[#151915] transition-colors"
-              >
-                Close
-              </button>
             </div>
+
+            <button
+              type="button"
+              onClick={closeQuoteModal}
+              className="text-xs text-[#70756D] hover:text-[#F4F4EF] transition-colors underline pt-2 block mx-auto"
+            >
+              Close Window
+            </button>
           </div>
         )}
       </div>

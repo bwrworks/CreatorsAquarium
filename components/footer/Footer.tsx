@@ -26,7 +26,7 @@ export function Footer() {
             </Link>
 
             <p className="text-xs text-[#A3A69F] leading-relaxed max-w-sm">
-              Professional aquarium setup, scheduled maintenance, and natural aquascaping for residences, offices, and commercial establishments across Bengaluru.
+              Custom aquarium design, build, turnkey installation, and disciplined ongoing maintenance across Bengaluru. From 1 ft nano concepts to 6 ft display ecosystems.
             </p>
 
             <div className="pt-2 space-y-2 text-xs text-[#70756D]">
@@ -50,15 +50,24 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Col 3: Services */}
+          {/* Col 3: Setup & Maintenance Services */}
           <div className="space-y-3">
             <h4 className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#F4F4EF]">
-              Services
+              Aquarium Services
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
                 <Link
-                  href="/services/maintenance"
+                  href="/setup"
+                  className="text-[#F4F4EF] hover:text-[#8BCF32] font-semibold transition-colors flex items-center gap-1.5"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#8BCF32]" />
+                  <span>Custom Aquarium Setup</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/maintenance"
                   className="hover:text-[#8BCF32] transition-colors"
                 >
                   Aquarium Maintenance
@@ -66,18 +75,10 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services/setup"
-                  className="hover:text-[#8BCF32] transition-colors"
-                >
-                  Setup & Commissioning
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/services/planted-aquarium"
                   className="hover:text-[#8BCF32] transition-colors"
                 >
-                  Planted Aquarium Care
+                  Planted Care
                 </Link>
               </li>
               <li>
@@ -85,7 +86,7 @@ export function Footer() {
                   href="/services/marine-aquarium"
                   className="hover:text-[#8BCF32] transition-colors"
                 >
-                  Marine Fish-Only Care
+                  Marine Fish-Only
                 </Link>
               </li>
               <li>
@@ -96,41 +97,6 @@ export function Footer() {
                   Aquarium Relocation
                 </Link>
               </li>
-            </ul>
-          </div>
-
-          {/* Col 4: Quick Links */}
-          <div className="space-y-3">
-            <h4 className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#F4F4EF]">
-              Company & Guides
-            </h4>
-            <ul className="space-y-2.5 text-xs">
-              <li>
-                <Link
-                  href="/about"
-                  className="text-[#F4F4EF] hover:text-[#8BCF32] font-semibold transition-colors flex items-center gap-1.5"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#8BCF32]" />
-                  <span>About Us & Standards</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/faq"
-                  className="text-[#F4F4EF] hover:text-[#8BCF32] font-semibold transition-colors flex items-center gap-1.5"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#8BCF32]" />
-                  <span>Frequently Asked Questions (FAQ)</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/how-it-works"
-                  className="hover:text-[#8BCF32] transition-colors"
-                >
-                  How It Works (5-Step SOP)
-                </Link>
-              </li>
               <li>
                 <Link
                   href="/maintenance-plans"
@@ -139,12 +105,45 @@ export function Footer() {
                   Monthly Care Plans (AMC)
                 </Link>
               </li>
+            </ul>
+          </div>
+
+          {/* Col 4: Quick Links & SEO Resources */}
+          <div className="space-y-3">
+            <h4 className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#F4F4EF]">
+              Company & Guides
+            </h4>
+            <ul className="space-y-2.5 text-xs">
+              <li>
+                <Link
+                  href="/about"
+                  className="hover:text-[#8BCF32] transition-colors"
+                >
+                  About Us & Standards
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/how-it-works"
+                  className="hover:text-[#8BCF32] transition-colors"
+                >
+                  How It Works
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/faq"
+                  className="hover:text-[#8BCF32] transition-colors"
+                >
+                  Frequently Asked Questions (FAQ)
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/gallery"
                   className="hover:text-[#8BCF32] transition-colors"
                 >
-                  Aquarium Inspirations & Scapes
+                  Aquarium Gallery
                 </Link>
               </li>
               <li>
@@ -152,7 +151,7 @@ export function Footer() {
                   href="/contact"
                   className="hover:text-[#8BCF32] transition-colors"
                 >
-                  Contact & Bengaluru Service Areas
+                  Contact & Bengaluru Areas
                 </Link>
               </li>
             </ul>
