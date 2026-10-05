@@ -21,6 +21,7 @@ export async function POST(request: Request) {
     console.log(`Locality : ${locality}`);
     console.log(`Service  : ${service}`);
     console.log(`Tank     : ${data.tankType || "N/A"} (${data.tankSize || "N/A"})`);
+    console.log(`Photo    : ${data.photoName || "None"}`);
     console.log(`Notes    : ${data.notes || "None"}`);
     console.log("======================================");
 

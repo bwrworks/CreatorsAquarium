@@ -54,7 +54,7 @@ export function BeforeAfterSlider({
         onMouseUp={onMouseUp}
         onMouseLeave={onMouseUp}
         onTouchMove={onTouchMove}
-        className="relative aspect-video w-full overflow-hidden rounded-xl border border-[#CBD5E1] select-none bg-[#0A0F1D] cursor-ew-resize shadow-lg"
+        className="relative aspect-video w-full overflow-hidden rounded-xl border border-[#242824] select-none bg-[#050505] cursor-ew-resize shadow-2xl"
       >
         {/* AFTER Image (Full background) */}
         <div className="absolute inset-0">
@@ -66,8 +66,8 @@ export function BeforeAfterSlider({
             className="object-cover"
             priority
           />
-          <div className="absolute top-4 right-4 z-10 px-3.5 py-1.5 rounded-md bg-[#FFFFFF]/90 backdrop-blur-md border border-[#E2E8F0] text-[11px] font-bold tracking-wider uppercase text-[#0070E0] shadow-sm">
-            After Creators Care
+          <div className="absolute top-4 right-4 z-10 px-3.5 py-1.5 rounded-md bg-[#050505]/85 backdrop-blur-md border border-[#8BCF32]/50 text-[11px] font-bold tracking-wider uppercase text-[#8BCF32] shadow-sm">
+            Example Transformation · After Creators Care
           </div>
         </div>
 
@@ -84,33 +84,30 @@ export function BeforeAfterSlider({
             className="object-cover pointer-events-none"
             priority
           />
-          <div className="absolute top-4 left-4 z-10 px-3.5 py-1.5 rounded-md bg-[#0A0F1D]/85 backdrop-blur-md border border-[#CBD5E1] text-[11px] font-bold tracking-wider uppercase text-[#FFFFFF] shadow-sm">
+          <div className="absolute top-4 left-4 z-10 px-3.5 py-1.5 rounded-md bg-[#050505]/85 backdrop-blur-md border border-[#242824] text-[11px] font-bold tracking-wider uppercase text-[#A3A69F] shadow-sm">
             Before Maintenance
           </div>
         </div>
 
         {/* Split Divider Line & Handle */}
         <div
-          className="absolute top-0 bottom-0 w-[3px] bg-[#0070E0] z-20 cursor-ew-resize flex items-center justify-center pointer-events-none shadow-md"
+          className="absolute top-0 bottom-0 w-[3px] bg-[#8BCF32] z-20 cursor-ew-resize flex items-center justify-center pointer-events-none shadow-[0_0_12px_rgba(139,207,50,0.5)]"
           style={{ left: `${sliderPos}%` }}
         >
           <div
             onMouseDown={onMouseDown}
             onTouchStart={onMouseDown}
-            className="w-9 h-9 rounded-full bg-[#FFFFFF] border-2 border-[#0070E0] flex items-center justify-center text-[#0070E0] shadow-xl pointer-events-auto"
+            className="w-9 h-9 rounded-full bg-[#050505] border-2 border-[#8BCF32] flex items-center justify-center text-[#8BCF32] shadow-[0_0_16px_rgba(139,207,50,0.4)] pointer-events-auto"
           >
-            <div className="flex gap-[3px]">
-              <span className="w-[2px] h-3.5 bg-[#0070E0] rounded-full" />
-              <span className="w-[2px] h-3.5 bg-[#0070E0] rounded-full" />
+            <div className="flex items-center gap-0.5">
+              <span className="w-1 h-3 bg-[#8BCF32] rounded-full" />
+              <span className="w-1 h-3 bg-[#8BCF32] rounded-full" />
             </div>
           </div>
         </div>
       </div>
-
-      <div className="flex items-center justify-between mt-3 text-xs text-[#64748B] px-1 font-medium">
-        <span>← Drag left to reveal after</span>
-        <span className="font-mono text-[11px] text-[#0A0F1D] font-bold">Same tank · 1 visit transformation</span>
-        <span>Drag right to reveal before →</span>
+      <div className="mt-3 text-center text-xs text-[#70756D]">
+        Drag slider left or right to inspect water clarity, hardscape detailing, and plant recovery
       </div>
     </div>
   );

@@ -33,7 +33,7 @@ export const FAQS: FAQItem[] = [
     category: "Service",
     question: "What types of marine (saltwater) aquariums do you set up and maintain?",
     answer:
-      "In strict adherence to Indian environmental law and the Wildlife (Protection) Act, Creators Aquarium specializes exclusively in freshwater planted aquascapes and marine fish-only systems using legally compliant, sustainably sourced marine livestock and specialized filtration.",
+      "Creators Aquarium specializes exclusively in freshwater planted aquascapes and marine fish-only systems using compliant, sustainably sourced marine livestock and specialized biological filtration. We focus on healthy saltwater community systems with natural or macro rock hardscapes.",
   },
   {
     category: "Process",

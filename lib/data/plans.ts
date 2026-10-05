@@ -5,6 +5,7 @@ export interface PlanTier {
   cadence: string;
   targetTank: string;
   isPopular?: boolean;
+  isRecommended?: boolean;
   features: string[];
   serviceReportIncluded: boolean;
 }
@@ -12,16 +13,17 @@ export interface PlanTier {
 export const MAINTENANCE_PLANS: PlanTier[] = [
   {
     id: "essential",
-    name: "Essential",
+    name: "Essential Care",
     priceMonthly: "₹1,499",
     cadence: "1 scheduled visit / month",
     targetTank: "Freshwater community tanks up to 3 ft",
     isPopular: false,
+    isRecommended: false,
     features: [
       "1 scheduled monthly maintenance visit",
-      "Partial water change & conditioning",
+      "Partial water change & mineral conditioning",
       "Glass detailing (interior & exterior)",
-      "Substrate light siphon",
+      "Substrate light siphon & debris removal",
       "Mechanical filter media rinse",
       "Basic temperature & pH verification",
       "Equipment visual safety check",
@@ -30,17 +32,18 @@ export const MAINTENANCE_PLANS: PlanTier[] = [
   },
   {
     id: "standard",
-    name: "Standard",
+    name: "Standard Care",
     priceMonthly: "₹2,499",
     cadence: "2 scheduled visits / month",
     targetTank: "Established freshwater & large display tanks",
     isPopular: true,
+    isRecommended: true,
     features: [
       "2 scheduled visits per month (bi-weekly)",
-      "Full water change & mineral conditioning",
+      "Full water change & mineral balancing",
       "Deep glass detailing & algae management",
-      "Comprehensive filter overhaul & impellor check",
-      "Full water testing (pH, TDS, Nitrate)",
+      "Comprehensive filter overhaul & impeller check",
+      "Water parameter testing (pH, TDS, Nitrate)",
       "Digital Service Report after each visit",
       "Priority response for troubleshooting",
     ],
@@ -53,6 +56,7 @@ export const MAINTENANCE_PLANS: PlanTier[] = [
     cadence: "2 scheduled visits / month",
     targetTank: "High-tech & low-tech Nature Aquariums",
     isPopular: false,
+    isRecommended: false,
     features: [
       "2 dedicated aquascaping visits per month",
       "Surgical plant trimming & contour shaping",
@@ -71,13 +75,14 @@ export const MAINTENANCE_PLANS: PlanTier[] = [
     cadence: "2 scheduled visits / month",
     targetTank: "Saltwater fish-only & sump-driven systems",
     isPopular: false,
+    isRecommended: false,
     features: [
       "2 scheduled marine technician visits / month",
       "Optical refractometer salinity calibration",
       "RO/DI synthetic saltwater preparation",
       "Protein skimmer cup & neck overhaul",
       "Sump detritus clearing & filter media rinse",
-      "Marine water parameter testing (Salinity, pH, Ammonia, NO3)",
+      "Water testing (Salinity, pH, Ammonia, NO3)",
       "Comprehensive Marine Service Report",
     ],
     serviceReportIncluded: true,
@@ -94,11 +99,11 @@ export const PRICING_PHILOSOPHY = [
     description: "Honest starting figures with itemized quotes. No arbitrary surcharges or sudden fee changes.",
   },
   {
-    title: "No Forced Packages",
-    description: "Choose between single on-demand visits or flexible monthly AMCs. Pause or switch anytime.",
+    title: "Flexible Monthly Plans",
+    description: "Choose between single on-demand visits or flexible recurring monthly care. Simple, predictable scheduling.",
   },
   {
-    title: "No Online Payment Needed",
-    description: "All services are quoted and confirmed after evaluating your tank. Zero cart, zero forced checkout.",
+    title: "Zero Forced Checkout",
+    description: "All services are quoted and confirmed after reviewing your tank requirements. Zero cart, zero forced online payments.",
   },
 ];

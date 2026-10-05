@@ -7,6 +7,7 @@ import { QuoteModalProvider } from "@/components/context/QuoteModalContext";
 import { QuoteModal } from "@/components/ui/QuoteModal";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { BRAND } from "@/lib/constants";
+import { getLocalBusinessSchema } from "@/lib/seo";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -22,27 +23,50 @@ const plusJakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://creatorsaquarium.com"),
+  alternates: {
+    canonical: "https://creatorsaquarium.com",
+  },
   title: {
     default: "Creators Aquarium | Professional Aquarium Setup & Maintenance Bengaluru",
     template: "%s | Creators Aquarium",
   },
   description:
-    "Premium aquarium setup, routine maintenance, and nature aquascaping across Bengaluru. Water testing, filter care, and scheduled AMCs for homes and offices.",
+    "Premium aquarium setup, routine maintenance, and nature aquascaping across Bengaluru. Water parameter testing, filter care, and scheduled AMCs for homes and offices.",
   keywords: [
     "aquarium maintenance Bangalore",
     "fish tank cleaning Bengaluru",
+    "aquarium maintenance Bengaluru",
+    "fish tank cleaning Bangalore",
     "planted aquarium Bangalore",
     "aquascaping Bangalore",
     "aquarium setup Bangalore",
+    "custom aquarium installation Bengaluru",
     "marine aquarium maintenance Bangalore",
     "aquarium AMC Bangalore",
+    "aquarium relocation Bengaluru",
+    "fish tank service Indiranagar",
+    "aquarium service Koramangala",
+    "aquarium cleaning Whitefield",
+    "aquarium service HSR Layout",
   ],
   authors: [{ name: "Creators Aquarium" }],
   creator: "Creators Aquarium",
   publisher: "Creators Aquarium",
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: true,
+  },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   openGraph: {
     type: "website",
@@ -54,7 +78,7 @@ export const metadata: Metadata = {
     siteName: "Creators Aquarium",
     images: [
       {
-        url: "/images/hero.jpg",
+        url: "https://creatorsaquarium.com/images/hero.jpg",
         width: 1200,
         height: 675,
         alt: "Creators Aquarium Bengaluru Luxury Planted Setup",
@@ -70,7 +94,13 @@ export const metadata: Metadata = {
     title: "Creators Aquarium | Professional Aquarium Care Bengaluru",
     description:
       "Disciplined aquarium maintenance, water testing, and turnkey aquascaping for residences and offices in Bengaluru.",
-    images: ["/images/hero.jpg"],
+    images: ["https://creatorsaquarium.com/images/hero.jpg"],
+  },
+  other: {
+    "geo.region": "IN-KA",
+    "geo.placename": "Bengaluru",
+    "geo.position": "12.9716;77.5946",
+    "ICBM": "12.9716, 77.5946",
   },
 };
 
@@ -79,29 +109,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: BRAND.name,
-    description: BRAND.heroDescription,
-    url: "https://creatorsaquarium.com",
-    telephone: BRAND.phone,
-    email: BRAND.email,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Bengaluru",
-      addressRegion: "Karnataka",
-      addressCountry: "IN",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: "12.9716",
-      longitude: "77.5946",
-    },
-    openingHours: "Mo-Su 09:00-19:30",
-    priceRange: "₹799 - ₹15000",
-    image: "https://creatorsaquarium.com/images/hero.jpg",
-  };
+  const jsonLd = getLocalBusinessSchema();
 
   return (
     <html lang="en" className={`${playfair.variable} ${plusJakarta.variable}`}>
@@ -111,9 +119,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-[#FFFFFF] text-[#0A0F1D] antialiased selection:bg-[#0070E0] selection:text-[#FFFFFF]">
+      <body className="bg-[#050505] text-[#F4F4EF] antialiased selection:bg-[#8BCF32] selection:text-[#050505]">
         <QuoteModalProvider>
-          <div className="flex flex-col min-h-screen bg-[#FFFFFF]">
+          <div className="flex flex-col min-h-screen bg-[#050505]">
             <Navbar />
             <main className="flex-grow pt-[72px]">{children}</main>
             <Footer />

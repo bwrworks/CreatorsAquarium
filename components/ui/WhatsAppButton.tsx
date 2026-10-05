@@ -20,14 +20,14 @@ export function WhatsAppButton({ customMessage }: WhatsAppButtonProps) {
         rel="noopener noreferrer"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="group flex items-center bg-[#FFFFFF] hover:bg-[#F8FAFC] border border-[#CBD5E1] hover:border-[#0070E0] text-[#0A0F1D] rounded-full p-3 shadow-lg hover:shadow-[0_4px_20px_rgba(0,112,224,0.22)] transition-all duration-300 ease-out"
+        className="group flex items-center bg-[#0A0C0A] hover:bg-[#101310] border border-[#242824] hover:border-[#8BCF32]/60 text-[#F4F4EF] rounded-full p-3 shadow-2xl hover:shadow-[0_4px_24px_rgba(139,207,50,0.2)] transition-all duration-300 ease-out"
         aria-label="Chat with Creators Aquarium on WhatsApp"
       >
-        {/* WhatsApp Icon with Brand Blue Accent */}
-        <div className="relative flex items-center justify-center w-8 h-8 rounded-full bg-[#E0F2FE] text-[#0070E0] group-hover:scale-105 transition-transform">
-          <MessageCircle className="w-5 h-5 fill-[#0070E0]/20 stroke-[#0070E0]" />
+        {/* WhatsApp Icon with Brand Green Accent */}
+        <div className="relative flex items-center justify-center w-8 h-8 rounded-full bg-[#151915] text-[#8BCF32] group-hover:scale-105 transition-transform">
+          <MessageCircle className="w-5 h-5 fill-[#8BCF32]/15 stroke-[#8BCF32]" />
           {/* Subtle online pulse */}
-          <span className="absolute top-0 right-0 w-2.5 h-2.5 rounded-full bg-[#0070E0] ring-2 ring-[#FFFFFF]" />
+          <span className="absolute top-0 right-0 w-2.5 h-2.5 rounded-full bg-[#8BCF32] ring-2 ring-[#0A0C0A]" />
         </div>
 
         {/* Expandable Label on Desktop */}
@@ -38,7 +38,7 @@ export function WhatsAppButton({ customMessage }: WhatsAppButtonProps) {
               : "max-w-0 opacity-0 ml-0 mr-0"
           }`}
         >
-          <span className="text-xs font-semibold tracking-wide text-[#0A0F1D]">
+          <span className="text-xs font-semibold tracking-wide text-[#F4F4EF]">
             Chat with Creators Aquarium
           </span>
         </div>
