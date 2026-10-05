@@ -74,3 +74,38 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #353D35;
 }
+
+/* Logo Loader Animations */
+@keyframes logoPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 16px rgba(139, 207, 50, 0.25)) drop-shadow(0 0 32px rgba(0, 163, 255, 0.15));
+  }
+  50% {
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 28px rgba(139, 207, 50, 0.45)) drop-shadow(0 0 48px rgba(0, 163, 255, 0.25));
+  }
+}
+
+@keyframes progressShimmer {
+  0% {
+    width: 0%;
+    margin-left: 0%;
+  }
+  50% {
+    width: 65%;
+    margin-left: 20%;
+  }
+  100% {
+    width: 100%;
+    margin-left: 0%;
+  }
+}
+
+.animate-logo-pulse {
+  animation: logoPulse 2.2s ease-in-out infinite;
+}
+
+.animate-progress-shimmer {
+  animation: progressShimmer 1.5s ease-in-out infinite;
+}

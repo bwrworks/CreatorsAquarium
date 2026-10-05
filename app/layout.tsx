@@ -6,6 +6,7 @@ import { Footer } from "@/components/footer/Footer";
 import { QuoteModalProvider } from "@/components/context/QuoteModalContext";
 import { QuoteModal } from "@/components/ui/QuoteModal";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { PageLoader } from "@/components/ui/PageLoader";
 import { BRAND } from "@/lib/constants";
 import { getLocalBusinessSchema } from "@/lib/seo";
 
@@ -120,6 +121,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-[#050505] text-[#F4F4EF] antialiased selection:bg-[#8BCF32] selection:text-[#050505]">
+        <PageLoader />
         <QuoteModalProvider>
           <div className="flex flex-col min-h-screen bg-[#050505]">
             <Navbar />

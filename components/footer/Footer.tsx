@@ -11,25 +11,17 @@ export function Footer() {
     <footer className="bg-[#050505] border-t border-[#242824] pt-16 pb-12 text-[#A3A69F]">
       <div className="w-full max-w-[1750px] mx-auto px-4 sm:px-8 lg:px-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[#242824]">
-          {/* Col 1 & 2: Brand Lockup & Address */}
-          <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="inline-flex items-center gap-3 py-1 group">
-              <div className="relative w-10 h-10 flex-shrink-0">
+          {/* Col 1 & 2: Large Brand Logo & Contact */}
+          <div className="lg:col-span-2 space-y-6">
+            <Link href="/" className="inline-block group py-1">
+              <div className="relative w-64 sm:w-72 md:w-80 aspect-[751/665] drop-shadow-[0_6px_32px_rgba(0,0,0,0.9)]">
                 <Image
-                  src="/brand/icon.png"
-                  alt="Creators Aquarium"
+                  src="/brand/logo-clean.png"
+                  alt="Creators Aquarium - Where Oceans Meet Nature"
                   fill
-                  sizes="40px"
-                  className="object-contain"
+                  sizes="(max-width: 640px) 256px, (max-width: 768px) 288px, 320px"
+                  className="object-contain object-left transition-transform duration-300 group-hover:scale-[1.02]"
                 />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-[14px] font-bold tracking-[0.14em] text-[#F4F4EF] uppercase group-hover:text-[#8BCF32] transition-colors">
-                  CREATORS AQUARIUM
-                </span>
-                <span className="text-[10px] tracking-[0.12em] text-[#70756D] uppercase">
-                  Where Oceans Meet Nature
-                </span>
               </div>
             </Link>
 
@@ -110,15 +102,25 @@ export function Footer() {
           {/* Col 4: Quick Links */}
           <div className="space-y-3">
             <h4 className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#F4F4EF]">
-              Company
+              Company & Guides
             </h4>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-2.5 text-xs">
               <li>
                 <Link
                   href="/about"
-                  className="hover:text-[#8BCF32] transition-colors"
+                  className="text-[#F4F4EF] hover:text-[#8BCF32] font-semibold transition-colors flex items-center gap-1.5"
                 >
-                  About & Standards
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#8BCF32]" />
+                  <span>About Us & Standards</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/faq"
+                  className="text-[#F4F4EF] hover:text-[#8BCF32] font-semibold transition-colors flex items-center gap-1.5"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#8BCF32]" />
+                  <span>Frequently Asked Questions (FAQ)</span>
                 </Link>
               </li>
               <li>
@@ -126,7 +128,7 @@ export function Footer() {
                   href="/how-it-works"
                   className="hover:text-[#8BCF32] transition-colors"
                 >
-                  How It Works (SOP)
+                  How It Works (5-Step SOP)
                 </Link>
               </li>
               <li>
@@ -134,7 +136,7 @@ export function Footer() {
                   href="/maintenance-plans"
                   className="hover:text-[#8BCF32] transition-colors"
                 >
-                  Monthly Care Plans
+                  Monthly Care Plans (AMC)
                 </Link>
               </li>
               <li>
@@ -142,15 +144,7 @@ export function Footer() {
                   href="/gallery"
                   className="hover:text-[#8BCF32] transition-colors"
                 >
-                  Aquarium Inspirations
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/faq"
-                  className="hover:text-[#8BCF32] transition-colors"
-                >
-                  Frequently Asked Questions
+                  Aquarium Inspirations & Scapes
                 </Link>
               </li>
               <li>
@@ -158,7 +152,7 @@ export function Footer() {
                   href="/contact"
                   className="hover:text-[#8BCF32] transition-colors"
                 >
-                  Contact & Service Areas
+                  Contact & Bengaluru Service Areas
                 </Link>
               </li>
             </ul>

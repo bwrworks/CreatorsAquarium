@@ -44,8 +44,6 @@ export function Navbar() {
     { name: "How It Works", href: "/how-it-works" },
     { name: "Plans", href: "/maintenance-plans" },
     { name: "Inspirations", href: "/gallery" },
-    { name: "About", href: "/about" },
-    { name: "FAQ", href: "/faq" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -60,29 +58,21 @@ export function Navbar() {
       >
         <div className="w-full max-w-[1750px] mx-auto px-4 sm:px-8 lg:px-14">
           <div className="flex items-center justify-between">
-            {/* Authentic Brand Emblem & Name */}
+            {/* Authentic Brand Logo */}
             <Link
               href="/"
-              className="flex items-center gap-3 group py-0.5"
+              className="flex items-center group py-0.5"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <div className="relative w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0">
+              <div className="relative h-10 sm:h-12 w-[185px] sm:w-[225px] flex-shrink-0">
                 <Image
-                  src="/brand/icon.png"
-                  alt="Creators Aquarium"
+                  src="/brand/logo-horizontal-dark.png"
+                  alt="Creators Aquarium - Where Oceans Meet Nature"
                   fill
-                  sizes="40px"
-                  className="object-contain"
+                  sizes="(max-width: 640px) 185px, 225px"
+                  className="object-contain object-left transition-transform duration-200 group-hover:scale-[1.02]"
                   priority
                 />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-[13px] sm:text-[14px] font-bold tracking-[0.14em] text-[#F4F4EF] uppercase group-hover:text-[#8BCF32] transition-colors">
-                  CREATORS AQUARIUM
-                </span>
-                <span className="text-[10px] tracking-[0.12em] text-[#70756D] uppercase hidden sm:block">
-                  Bengaluru · Setup & Maintenance
-                </span>
               </div>
             </Link>
 
