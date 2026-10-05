@@ -293,7 +293,7 @@ export default function HomePage() {
                 From Idea to Aquarium
               </h2>
               <p className="text-xs sm:text-sm text-[#A3A69F]">
-                Consult → Design → Build → Install → Aquascape → Commission → Handover → Care.
+                Consultation → Design & Quote → Sourcing & Fabrication → Delivery & Placement → Installation & Aquascaping → Commissioning → Handover → Ongoing Care.
               </p>
             </div>
 

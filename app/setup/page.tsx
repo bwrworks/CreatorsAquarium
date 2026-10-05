@@ -281,7 +281,7 @@ export default function NewSetupPage() {
                 From Idea to Aquarium
               </h2>
               <p className="text-xs sm:text-sm text-[#A3A69F]">
-                A disciplined 8-step project lifecycle from your initial space consultation through to long-term care.
+                Consultation → Design & Quote → Sourcing & Fabrication → Delivery & Placement → Installation & Aquascaping → Commissioning → Handover → Ongoing Care.
               </p>
             </div>
 

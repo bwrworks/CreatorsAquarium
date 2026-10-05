@@ -198,12 +198,12 @@ export const TURNKEY_STEPS = [
   },
   {
     step: "06",
-    title: "System Commissioning",
+    title: "Commissioning",
     desc: "We perform leak inspections, equipment operational tests, water preparation, and initial parameter baseline checks.",
   },
   {
     step: "07",
-    title: "Customer Handover",
+    title: "Handover",
     desc: "We walk you through equipment controls, lighting schedules, feeding procedures, and daily observations.",
   },
   {
