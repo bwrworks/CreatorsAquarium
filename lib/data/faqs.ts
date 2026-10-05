@@ -7,62 +7,44 @@ export interface FAQItem {
 export const FAQS: FAQItem[] = [
   {
     category: "Service",
-    question: "Do you bring your own tools and equipment for maintenance?",
+    question: "Do you design and build the entire aquarium?",
     answer:
-      "Yes. Our technicians arrive with a dedicated professional aquarium kit including specialized curved trimming tools, non-abrasive glass cleaners, gravel siphons, digital water testing meters, and buckets. You only need to provide access to tap water and an electrical outlet.",
-  },
-  {
-    category: "Safety",
-    question: "Is water changing safe for my fish and aquatic plants?",
-    answer:
-      "Absolutely. We never perform 100% destructive water dumps. We carry out controlled partial water changes (typically 25%–35%), carefully match water temperatures, and neutralize chlorine and heavy metals with quality conditioners to prevent osmotic shock and preserve vital nitrifying bacteria.",
+      "Yes. We handle end-to-end custom design, tank sourcing, custom cabinetry, filtration engineering, aquascaping, and on-site commissioning from 1 ft to 6 ft.",
   },
   {
     category: "Pricing",
-    question: "Why do your prices state 'Starting from'?",
+    question: "How are custom setups quoted?",
     answer:
-      "Every aquarium is unique. An established 2-foot freshwater tank requires less time and supplies than an overgrown 5-foot planted aquascape or a high-volume marine sump system. Our public prices represent our baseline starting fee for healthy tanks; your final quotation is confirmed after reviewing tank photos or performing an initial inspection.",
+      "Every custom aquarium is quoted based on dimensions, glass grade, stand materials, and equipment architecture. We provide an itemized quote before fabrication begins.",
   },
   {
-    category: "Process",
-    question: "What is the Service Report and when do I receive it?",
+    category: "Safety",
+    question: "Can I introduce fish on installation day?",
     answer:
-      "After every standard and specialist maintenance visit, our technician generates a digital Service Report documenting key water parameters (pH, TDS, temperature, nitrate levels), equipment inspection status, and actions completed. This creates a transparent historical health record for your aquarium.",
+      "We advise against adding livestock on Day 1. The aquarium requires time to establish its biological cycle. We commission all hardware, prepare the water, and provide a clear timeline for adding fish.",
   },
   {
     category: "Service",
-    question: "What types of marine (saltwater) aquariums do you set up and maintain?",
+    question: "What maintenance services do you offer?",
     answer:
-      "Creators Aquarium specializes exclusively in freshwater planted aquascapes and marine fish-only systems using compliant, sustainably sourced marine livestock and specialized biological filtration. We focus on healthy saltwater community systems with natural or macro rock hardscapes.",
+      "We provide single visits (from ₹799/visit for routine care) and scheduled monthly AMC plans (from ₹1,499/mo) for freshwater, planted, and marine fish-only systems across Bengaluru.",
   },
   {
     category: "Process",
-    question: "How do I book a service visit or get a quotation?",
+    question: "What is the Service Report?",
     answer:
-      "Simply click 'Request a Quote' on our website or reach out directly via WhatsApp with a photo or details of your aquarium (approximate size, tank type, and Bengaluru location). Our team will review your requirements, provide an upfront estimate, and schedule a convenient visit.",
-  },
-  {
-    category: "Pricing",
-    question: "Do I have to pay online or enter credit card details?",
-    answer:
-      "No. Phase 1 of Creators Aquarium operates on an honest, quote-first model with zero online payments, shopping carts, or hidden checkout fees. Payment is settled through verified business UPI or bank transfer only after service scope confirmation.",
-  },
-  {
-    category: "Pricing",
-    question: "How do you quote new custom aquarium setups?",
-    answer:
-      "Custom aquariums are quoted individually based on tank dimensions (from 1 ft to 6 ft), glass specifications (ultra-clear low-iron glass), custom stand fabrication, filtration design (canister or sump systems), lighting, and hardscape materials. We provide an itemized proposal with zero guesswork before sourcing and fabrication begin.",
+      "After each maintenance visit, our technician delivers a digital report to your WhatsApp documenting tested water metrics (pH, TDS, temperature), completed checklist items, and care notes.",
   },
   {
     category: "Safety",
-    question: "Can I add fish immediately on installation day?",
+    question: "Is water changing safe for my fish?",
     answer:
-      "We strictly advise against introducing sensitive livestock on installation day. On setup day, we commission the system—conducting leak inspections, hardware tests, plumbing verification, and water conditioning. Aquariums need time to establish their natural biological cycle before introducing fish. We provide a step-by-step handover guide for safe livestock introduction.",
+      "Yes. We perform controlled partial water changes (25%–35%) with temperature-matched, conditioned water to safeguard beneficial bacteria and prevent livestock stress.",
   },
   {
-    category: "Safety",
-    question: "How do you ensure safe fish transport during aquarium relocations?",
+    category: "Process",
+    question: "How do I get started or book a visit?",
     answer:
-      "We use insulated, aerated livestock transit containers to prevent temperature drops and oxygen depletion. We also preserve a portion of mature aquarium water and ensure biological filter media remains moist and viable throughout the move to avoid post-relocation cycle crashes.",
+      "Click 'Request a Quote' or message us on WhatsApp with your tank size or space photos. We review details and confirm upfront pricing before scheduling.",
   },
 ];

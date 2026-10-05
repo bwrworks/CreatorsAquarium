@@ -128,37 +128,20 @@ export default function MarineAquariumPage() {
             </div>
           </div>
 
-          {/* Inclusions & Exclusions */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-8 rounded-xl bg-[#0A0C0A] border border-[#242824] shadow-xl space-y-4">
-              <h3 className="text-sm font-bold uppercase tracking-[0.12em] text-[#F4F4EF] flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#8BCF32]" />
-                Included in Marine Scope
-              </h3>
-              <ul className="space-y-2.5 text-xs sm:text-sm text-[#A3A69F]">
-                {service.inclusions.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <span className="text-[#8BCF32] mt-0.5 font-bold">•</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="p-8 rounded-xl bg-[#0A0C0A] border border-[#242824] shadow-xl space-y-4">
-              <h3 className="text-sm font-bold uppercase tracking-[0.12em] text-[#70756D] flex items-center gap-2">
-                <XCircle className="w-4 h-4 text-[#70756D]" />
-                Strictly Excluded
-              </h3>
-              <ul className="space-y-2.5 text-xs sm:text-sm text-[#70756D]">
-                {service.exclusions.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <span className="text-[#353D35] mt-0.5">•</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Service Inclusions */}
+          <div className="p-8 rounded-xl bg-[#0A0C0A] border border-[#242824] shadow-xl space-y-4">
+            <h3 className="text-sm font-bold uppercase tracking-[0.12em] text-[#F4F4EF] flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-[#8BCF32]" />
+              What Every Marine Fish-Only Visit Includes
+            </h3>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-[#A3A69F]">
+              {service.inclusions.map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="text-[#8BCF32] mt-0.5 font-bold">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* CTAs */}

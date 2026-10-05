@@ -147,38 +147,40 @@ export default function NewSetupPage() {
               {AQUARIUM_TYPES.map((type) => (
                 <div
                   key={type.id}
-                  className="rounded-xl bg-[#0A0C0A] border border-[#242824] hover:border-[#8BCF32]/50 p-8 flex flex-col justify-between shadow-2xl transition-all duration-300 space-y-6"
+                  className="rounded-xl bg-[#0A0C0A] border border-[#242824] hover:border-[#8BCF32]/50 p-7 flex flex-col justify-between shadow-xl transition-all space-y-5"
                 >
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     <div>
                       <span className="text-[10px] uppercase font-bold tracking-[0.14em] text-[#8BCF32]">
                         {type.subtitle}
                       </span>
-                      <h3 className="text-2xl font-serif text-[#F4F4EF] font-bold mt-1">
+                      <h3 className="text-2xl font-serif text-[#F4F4EF] font-bold mt-0.5">
                         {type.title}
                       </h3>
                     </div>
 
-                    <p className="text-xs sm:text-sm text-[#A3A69F] leading-relaxed">
+                    <p className="text-xs text-[#A3A69F] leading-relaxed">
                       {type.description}
                     </p>
 
-                    <ul className="space-y-2.5 pt-2 border-t border-[#242824] text-xs text-[#A3A69F]">
-                      {type.features.map((feat, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#8BCF32] flex-shrink-0 mt-0.5" />
-                          <span>{feat}</span>
-                        </li>
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {type.types.map((t, i) => (
+                        <span
+                          key={i}
+                          className="px-2.5 py-1 rounded bg-[#101310] border border-[#242824] text-[11px] text-[#A3A69F]"
+                        >
+                          {t}
+                        </span>
                       ))}
-                    </ul>
+                    </div>
                   </div>
 
-                  <div className="pt-4 border-t border-[#242824]">
+                  <div className="pt-3 border-t border-[#242824]">
                     <OpenQuoteModalButton
                       service={`NEW SETUP (${type.title.toUpperCase()})`}
-                      className="w-full py-3 rounded-md bg-[#101310] hover:bg-[#151915] border border-[#242824] hover:border-[#8BCF32]/50 text-xs font-bold uppercase tracking-wider text-[#F4F4EF] transition-colors cursor-pointer text-center block"
+                      className="w-full py-2.5 rounded-md bg-[#101310] hover:bg-[#151915] border border-[#242824] hover:border-[#8BCF32]/50 text-xs font-bold uppercase tracking-wider text-[#F4F4EF] transition-colors cursor-pointer text-center block"
                     >
-                      Configure {type.title}
+                      Inquire About {type.title}
                     </OpenQuoteModalButton>
                   </div>
                 </div>
@@ -203,33 +205,33 @@ export default function NewSetupPage() {
             <TankSizeSelector />
           </div>
 
-          {/* 4. COMPLETE TURNKEY PACKAGE: "YOUR AQUARIUM CAN INCLUDE" */}
+          {/* 4. COMPLETE TURNKEY PACKAGE */}
           <div className="space-y-10 border-t border-[#242824] pt-20">
-            <div className="max-w-3xl space-y-3">
+            <div className="max-w-3xl space-y-2">
               <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#8BCF32]">
                 COMPLETE SPECIFICATION
               </span>
               <h2 className="text-2xl sm:text-4xl font-serif text-[#F4F4EF] font-bold">
-                Your Complete Aquarium Package
+                Complete Turnkey Setup
               </h2>
-              <p className="text-xs sm:text-sm text-[#A3A69F] leading-relaxed">
-                We recommend equipment tailored to your tank volume, livestock vision, and budget. You are commissioning a complete, balanced living ecosystem.
+              <p className="text-xs sm:text-sm text-[#A3A69F]">
+                Everything required for a balanced, functional living ecosystem tailored to your space.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {TURNKEY_INCLUSIONS.map((section, idx) => (
                 <div
                   key={idx}
-                  className="rounded-xl bg-[#0A0C0A] border border-[#242824] p-7 shadow-xl space-y-3"
+                  className="rounded-xl bg-[#0A0C0A] border border-[#242824] p-6 shadow-xl space-y-2.5"
                 >
                   <div className="flex items-center gap-2">
                     <Layers className="w-4 h-4 text-[#8BCF32]" />
-                    <h3 className="text-base font-serif text-[#F4F4EF] font-bold">
+                    <h3 className="text-sm font-serif text-[#F4F4EF] font-bold">
                       {section.category}
                     </h3>
                   </div>
-                  <ul className="space-y-2 text-xs text-[#A3A69F]">
+                  <ul className="space-y-1.5 text-xs text-[#A3A69F]">
                     {section.items.map((item, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <span className="text-[#8BCF32] font-bold">•</span>

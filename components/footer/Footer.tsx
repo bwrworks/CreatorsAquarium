@@ -188,25 +188,19 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Legal Disclaimers & Compliance Statement */}
-        <div className="pt-8 text-[11px] text-[#70756D] space-y-3">
-          <p className="leading-relaxed">
-            <strong className="text-[#A3A69F]">Ornamental Standards:</strong> Creators Aquarium provides professional setup and maintenance for freshwater aquascapes and marine fish-only saltwater systems. We prioritize biological water quality, ethical livestock care, and dependable service across Bengaluru.
-          </p>
+        {/* Copyright and Legal Links */}
+        <div className="pt-8 border-t border-[#242824] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#70756D]">
+          <div>
+            &copy; {currentYear} Creators Aquarium. All rights reserved. Bengaluru, Karnataka.
+          </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#242824]">
-            <div>
-              &copy; {currentYear} Creators Aquarium. All rights reserved. Bengaluru, Karnataka.
-            </div>
-
-            <div className="flex items-center gap-6">
-              <Link href="/privacy" className="hover:text-[#8BCF32] transition-colors">
-                Privacy Notice
-              </Link>
-              <Link href="/terms" className="hover:text-[#8BCF32] transition-colors">
-                Service Terms & Conditions
-              </Link>
-            </div>
+          <div className="flex items-center gap-6">
+            <Link href="/privacy" className="hover:text-[#8BCF32] transition-colors">
+              Privacy Notice
+            </Link>
+            <Link href="/terms" className="hover:text-[#8BCF32] transition-colors">
+              Terms & Conditions
+            </Link>
           </div>
         </div>
       </div>

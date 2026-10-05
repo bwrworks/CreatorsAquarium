@@ -156,26 +156,16 @@ export default function ContactPage() {
               </div>
 
               {/* Bengaluru Locality Coverage */}
-              <div className="p-8 sm:p-10 rounded-xl bg-[#0A0C0A] border border-[#242824] space-y-4 shadow-xl">
+              <div className="p-6 rounded-xl bg-[#0A0C0A] border border-[#242824] space-y-2">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-[#8BCF32]" />
-                  <h3 className="text-sm font-bold uppercase tracking-wider text-[#F4F4EF]">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#F4F4EF]">
                     Bengaluru Service Coverage
                   </h3>
                 </div>
-                <p className="text-xs text-[#70756D] leading-relaxed">
-                  Mobile technician visits across all central and suburban neighborhoods:
+                <p className="text-xs text-[#A3A69F] leading-relaxed">
+                  Active visits across Indiranagar, Koramangala, Whitefield, HSR Layout, JP Nagar, and all central & suburban Bengaluru neighborhoods.
                 </p>
-                <div className="flex flex-wrap gap-2 pt-1">
-                  {BENGALURU_LOCALITIES.slice(0, 16).map((loc) => (
-                    <span
-                      key={loc}
-                      className="px-3 py-1.5 rounded-md bg-[#101310] border border-[#242824] text-xs text-[#A3A69F] font-medium"
-                    >
-                      {loc}
-                    </span>
-                  ))}
-                </div>
               </div>
             </div>
 

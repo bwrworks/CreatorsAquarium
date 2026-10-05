@@ -109,13 +109,10 @@ export default function AboutPage() {
                 &ldquo;Beautiful aquariums are designed thoughtfully and maintained with discipline.&rdquo;
               </h2>
               <p>
-                In Bengaluru, aquarium owners frequently encounter either shops selling generic tanks with zero follow-through, or informal cleaners who crash the tank&apos;s biological balance—leaving fish stressed and plants deteriorating.
+                In Bengaluru, aquarium owners frequently encounter informal cleaners who scrub glass with abrasive pads and crash biological stability.
               </p>
               <p>
-                <strong className="text-[#F4F4EF]">Creators Aquarium</strong> was established to change this paradigm. We design, source, build, and install complete custom aquariums from 1 ft to 6 ft, then provide disciplined ongoing care.
-              </p>
-              <p>
-                From bespoke rimless low-iron glass setups in luxury residences to scheduled office display maintenance, our technicians follow strict SOPs and deliver documented accountability after every visit.
+                <strong className="text-[#F4F4EF]">Creators Aquarium</strong> brings disciplined craftsmanship to aquatic living spaces. We design, source, build, and install custom aquariums from 1 ft to 6 ft, then provide dependable ongoing care with documented reports after every visit.
               </p>
             </div>
 

@@ -42,58 +42,33 @@ export default function HowItWorksPage() {
   const steps = [
     {
       step: "01",
-      title: "Tell Us About Your Aquarium",
-      desc: "Share your tank size, location in Bengaluru, current condition (photos via WhatsApp are very helpful), and what service you need assistance with.",
+      title: "Share Tank Details",
+      desc: "Tell us your aquarium size, ecosystem type, and Bengaluru location. Photos on WhatsApp help us assess current condition immediately.",
       icon: MessageSquare,
-      details: [
-        "Approximate dimensions or volume in litres",
-        "Ecosystem type: Freshwater, Planted, or Marine Fish-Only",
-        "Known challenges: algae, water clarity, or equipment noise",
-      ],
     },
     {
       step: "02",
-      title: "Assessment Before Touching the Tank",
-      desc: "We diagnose the aquarium's current state before starting any work. Understanding biological balance prevents osmotic shock and livestock stress.",
+      title: "Diagnostics & Upfront Quote",
+      desc: "We review water volume, filtration type, and livestock requirements to confirm a firm quote before any work begins.",
       icon: Search,
-      details: [
-        "Baseline water testing: pH, TDS, temperature, and nitrogen chemistry where applicable",
-        "Filtration flow & biological media evaluation",
-        "Clear upfront quotation confirmed before work begins",
-      ],
     },
     {
       step: "03",
       title: "Disciplined Technical Service",
-      desc: "Our technician arrives with professional-grade aquascaping and water handling equipment to perform controlled maintenance.",
+      desc: "Controlled partial water change, glass detailing, substrate siphoning, impeller wash, and mechanical filter rinse.",
       icon: Wrench,
-      details: [
-        "Controlled partial water change (never a 100% destructive dump)",
-        "Surgical glass cleaning & algae management",
-        "Substrate siphon, impeller wash & CO2/skimmer tune-up",
-      ],
     },
     {
       step: "04",
-      title: "Digital Service Report Delivered",
-      desc: "You receive documented proof right on your WhatsApp: exact water chemistry metrics, completed maintenance checklist, and notes for ongoing care.",
+      title: "Digital Service Report",
+      desc: "Receive verified water parameter logs (pH, TDS, temperature), hardware safety checkmarks, and notes directly on WhatsApp.",
       icon: FileCheck2,
-      details: [
-        "Tested parameters vs optimal target ranges",
-        "Hardware safety audit checkmarks",
-        "Historical maintenance log for your tank records",
-      ],
     },
     {
       step: "05",
-      title: "Predictable Ongoing Care",
-      desc: "Choose between single on-demand visits or flexible monthly care plans to keep your aquarium thriving without personal hassle.",
+      title: "Ongoing Care Options",
+      desc: "Continue on-demand or transition to a predictable monthly AMC plan with priority scheduling and zero lock-ins.",
       icon: CalendarCheck,
-      details: [
-        "Flexible bi-weekly or monthly care plans",
-        "Transparent scheduling with clear cancellation terms",
-        "Priority scheduling for recurring care clients",
-      ],
     },
   ];
 
@@ -128,58 +103,44 @@ export default function HowItWorksPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
       />
-      <div className="bg-[#050505] text-[#F4F4EF] py-16 sm:py-24 w-full">
+      <div className="bg-[#050505] text-[#F4F4EF] py-14 sm:py-20 w-full">
         <div className="w-full max-w-[1750px] mx-auto px-4 sm:px-8 lg:px-14">
           {/* Page Header */}
-          <div className="max-w-4xl mb-16 space-y-4">
+          <div className="max-w-3xl mb-12 space-y-3">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#101310] border border-[#242824] text-[11px] font-bold uppercase tracking-[0.14em] text-[#8BCF32]">
-              STANDARDIZED PROCEDURE
+              STANDARDIZED SOP
             </div>
             <h1 className="text-3xl sm:text-5xl font-serif text-[#F4F4EF] tracking-tight font-bold">
               How Creators Aquarium Works
             </h1>
-            <p className="text-sm sm:text-base text-[#A3A69F] leading-relaxed">
-              Beautiful aquariums are maintained through disciplined process, not guesswork. Here is the 5-step Standard Operating Procedure our technicians follow across Bengaluru.
+            <p className="text-sm sm:text-base text-[#A3A69F]">
+              A disciplined 5-step Standard Operating Procedure followed across every maintenance visit in Bengaluru.
             </p>
           </div>
 
-          {/* 5-Step Process Timeline */}
-          <div className="space-y-6 mb-24">
+          {/* 5-Step Process Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
             {steps.map((s, idx) => (
               <div
                 key={idx}
-                className="p-8 rounded-xl bg-[#0A0C0A] border border-[#242824] hover:border-[#8BCF32]/50 transition-colors shadow-2xl"
+                className="p-7 rounded-xl bg-[#0A0C0A] border border-[#242824] hover:border-[#8BCF32]/50 transition-colors shadow-xl space-y-4"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                  {/* Step Number & Title */}
-                  <div className="lg:col-span-4 space-y-3">
-                    <div className="flex items-center gap-3">
-                      <span className="font-mono text-3xl font-extrabold text-[#8BCF32]">
-                        {s.step}
-                      </span>
-                      <div className="w-9 h-9 rounded-lg bg-[#151915] border border-[#242824] flex items-center justify-center text-[#8BCF32]">
-                        <s.icon className="w-5 h-5" />
-                      </div>
-                    </div>
-                    <h2 className="text-xl font-serif text-[#F4F4EF] font-bold">
-                      {s.title}
-                    </h2>
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-2xl font-extrabold text-[#8BCF32]">
+                    {s.step}
+                  </span>
+                  <div className="w-9 h-9 rounded-lg bg-[#151915] border border-[#242824] flex items-center justify-center text-[#8BCF32]">
+                    <s.icon className="w-4 h-4" />
                   </div>
+                </div>
 
-                  {/* Description & Key Details */}
-                  <div className="lg:col-span-8 space-y-4">
-                    <p className="text-sm text-[#A3A69F] leading-relaxed">
-                      {s.desc}
-                    </p>
-                    <ul className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 border-t border-[#242824]">
-                      {s.details.map((d, i) => (
-                        <li key={i} className="flex items-start gap-2 text-xs text-[#70756D]">
-                          <CheckCircle className="w-3.5 h-3.5 text-[#8BCF32] flex-shrink-0 mt-0.5" />
-                          <span>{d}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                <div className="space-y-1.5">
+                  <h2 className="text-lg font-serif text-[#F4F4EF] font-bold">
+                    {s.title}
+                  </h2>
+                  <p className="text-xs sm:text-sm text-[#A3A69F] leading-relaxed">
+                    {s.desc}
+                  </p>
                 </div>
               </div>
             ))}

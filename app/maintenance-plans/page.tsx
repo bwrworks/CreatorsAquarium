@@ -152,47 +152,17 @@ export default function MaintenancePlansPage() {
           ))}
         </div>
 
-        {/* Starting Price Note */}
-        <div className="p-4 rounded-xl bg-[#0A0C0A] border border-[#242824] text-center text-xs text-[#70756D]">
-          Starting from. Final pricing depends on tank size, condition and service scope. Custom quotes issued for systems above 4 ft or complex sump designs. Call: <strong className="text-[#F4F4EF]">{BRAND.phoneDisplay}</strong>
-        </div>
-
-        {/* Custom Commercial Displays Banner */}
-        <div className="p-8 sm:p-10 rounded-xl bg-[#101310] border border-[#242824] text-[#F4F4EF] flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
-          <div className="space-y-2 max-w-2xl">
-            <span className="text-[10px] uppercase font-bold tracking-wider text-[#8BCF32]">
-              COMMERCIAL & CUSTOM DISPLAYS
-            </span>
-            <h3 className="text-2xl font-serif text-[#F4F4EF] font-bold">
-              Need something more complex? Request a custom SLA.
-            </h3>
+        {/* Guarantee & Direct Action */}
+        <div className="p-8 sm:p-12 rounded-xl bg-[#0A0C0A] border border-[#242824] text-center space-y-6">
+          <div className="space-y-2 max-w-xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-serif text-[#F4F4EF] font-bold">
+              Predictable Monthly Care
+            </h2>
             <p className="text-xs sm:text-sm text-[#A3A69F] leading-relaxed">
-              We manage oversized aquariums in corporate headquarters, hotel receptions, and retail flagship stores with dedicated emergency response and flexible visiting cadences.
+              Flexible plans with transparent pricing. Final scope confirmed before start. Cancel or pause anytime with simple notice.
             </p>
           </div>
-          <OpenQuoteModalButton
-            defaultService="Commercial Custom AMC Plan"
-            className="px-7 py-3.5 rounded-md bg-[#8BCF32] text-[#050505] hover:bg-[#B4E35A] text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex-shrink-0 shadow-[0_2px_12px_rgba(139,207,50,0.2)]"
-          >
-            Request Custom Quote
-          </OpenQuoteModalButton>
-        </div>
 
-        {/* Simple Transparency Statement */}
-        <div className="p-6 rounded-xl bg-[#0A0C0A] border border-[#242824] text-center max-w-2xl mx-auto space-y-2">
-          <p className="text-xs sm:text-sm text-[#F4F4EF] font-medium">
-            Flexible monthly plans. Final scope and pricing are confirmed before service.
-          </p>
-          <p className="text-[11px] text-[#70756D]">
-            Cancel or pause anytime with simple advance notice. Zero hidden fees.
-          </p>
-        </div>
-
-        {/* CTAs */}
-        <div className="p-10 rounded-xl bg-[#0A0C0A] border border-[#242824] text-center space-y-6">
-          <h2 className="text-2xl sm:text-3xl font-serif text-[#F4F4EF] font-bold">
-            Discuss the Right Plan for Your Aquarium
-          </h2>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <OpenQuoteModalButton
               defaultService="Monthly AMC Consultation"
@@ -202,7 +172,7 @@ export default function MaintenancePlansPage() {
             </OpenQuoteModalButton>
 
             <a
-              href={getWhatsAppUrl("Hi Creators Aquarium, I'd like to discuss a monthly care plan for my tank.")}
+              href={getWhatsAppUrl("Hi Creators Aquarium, I'd like to discuss a monthly care plan for my tank in Bengaluru.")}
               target="_blank"
               rel="noopener noreferrer"
               className="px-7 py-3.5 rounded-md bg-[#101310] border border-[#242824] hover:border-[#8BCF32]/60 text-xs font-bold uppercase tracking-wider text-[#F4F4EF] flex items-center gap-2 shadow-xs transition-colors"
@@ -219,6 +189,10 @@ export default function MaintenancePlansPage() {
               <span>Call: {BRAND.phoneDisplay}</span>
             </a>
           </div>
+
+          <p className="text-[11px] text-[#70756D]">
+            Have an oversized or corporate display? Custom SLAs available.
+          </p>
         </div>
       </div>
     </div>

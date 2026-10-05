@@ -170,63 +170,32 @@ export default function MaintenanceHubPage() {
             ))}
           </div>
 
-          {/* Relocation & System Upgrades Section */}
-          <div className="rounded-2xl bg-[#0A0C0A] border border-[#242824] p-8 sm:p-12 shadow-2xl space-y-8">
-            <div className="max-w-2xl space-y-2">
-              <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#8BCF32]">
+          {/* Relocation Banner */}
+          <div className="rounded-xl bg-[#0A0C0A] border border-[#242824] p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+            <div className="space-y-1">
+              <span className="text-[10px] uppercase font-bold tracking-wider text-[#8BCF32]">
                 LOGISTICS & MOVING
               </span>
-              <h2 className="text-2xl sm:text-4xl font-serif text-[#F4F4EF] font-bold">
-                Moving or Upgrading Your Aquarium?
-              </h2>
-              <p className="text-xs sm:text-sm text-[#A3A69F] leading-relaxed">
-                Safe tank shifting across Bengaluru. Aerated livestock transfer, biological filter preservation, cushioned glass protection, and rapid re-commissioning at your new address.
+              <h3 className="text-xl font-serif text-[#F4F4EF] font-bold">
+                Relocating Your Aquarium in Bengaluru?
+              </h3>
+              <p className="text-xs text-[#A3A69F]">
+                Safe intra-city transit with aerated livestock containers and mature bio-media preservation.
               </p>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-6 rounded-xl bg-[#101310] border border-[#242824] space-y-2">
-                <HeartHandshake className="w-5 h-5 text-[#8BCF32]" />
-                <h4 className="text-sm font-bold text-[#F4F4EF] font-serif">Safe Livestock Transit</h4>
-                <p className="text-xs text-[#A3A69F] leading-relaxed">
-                  Insulated, aerated transport units preventing thermal and osmotic stress.
-                </p>
-              </div>
-
-              <div className="p-6 rounded-xl bg-[#101310] border border-[#242824] space-y-2">
-                <ShieldCheck className="w-5 h-5 text-[#8BCF32]" />
-                <h4 className="text-sm font-bold text-[#F4F4EF] font-serif">Bio-Media Preservation</h4>
-                <p className="text-xs text-[#A3A69F] leading-relaxed">
-                  Canister and sump media sealed submerged in mature water to keep beneficial bacteria alive.
-                </p>
-              </div>
-
-              <div className="p-6 rounded-xl bg-[#101310] border border-[#242824] space-y-2">
-                <Truck className="w-5 h-5 text-[#8BCF32]" />
-                <h4 className="text-sm font-bold text-[#F4F4EF] font-serif">Padded Glass Logistics</h4>
-                <p className="text-xs text-[#A3A69F] leading-relaxed">
-                  Tanks drained, substrate protected, and glass padded with heavy transit blankets.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex items-center gap-3 flex-shrink-0">
               <OpenQuoteModalButton
                 service="AQUARIUM RELOCATION"
-                className="px-6 py-3 rounded-md bg-[#8BCF32] hover:bg-[#B4E35A] text-[#050505] text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+                className="px-5 py-2.5 rounded-md bg-[#8BCF32] hover:bg-[#B4E35A] text-[#050505] text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
               >
-                Request Relocation Quote
+                Relocation Quote
               </OpenQuoteModalButton>
-
-              <a
-                href={getWhatsAppUrl("Hi Creators Aquarium, I need an aquarium relocation quote in Bengaluru.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 rounded-md bg-[#101310] border border-[#242824] hover:border-[#8BCF32]/60 text-xs font-bold uppercase tracking-wider text-[#F4F4EF] flex items-center gap-2 transition-colors"
+              <Link
+                href="/services/relocation"
+                className="px-5 py-2.5 rounded-md bg-[#101310] hover:bg-[#151915] border border-[#242824] text-xs font-bold uppercase tracking-wider text-[#F4F4EF] transition-colors"
               >
-                <MessageCircle className="w-4 h-4 text-[#8BCF32]" />
-                <span>WhatsApp Us</span>
-              </a>
+                Details
+              </Link>
             </div>
           </div>
 
