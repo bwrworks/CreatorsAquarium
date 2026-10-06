@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { sendInquiryNotification, InquiryPayload } from "@/lib/email";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(request: Request) {
   try {
     const data: InquiryPayload = await request.json();

@@ -1,6 +1,5 @@
 import { Resend } from "resend";
 
-const RESEND_API_KEY = process.env.RESEND_API_KEY || "";
 const DEFAULT_NOTIFICATION_EMAIL =
   process.env.NOTIFICATION_EMAIL || "24.sam2000@gmail.com";
 const PRIMARY_FROM_EMAIL =
@@ -8,7 +7,11 @@ const PRIMARY_FROM_EMAIL =
 const FALLBACK_FROM_EMAIL = "Creators Aquarium <onboarding@resend.dev>";
 const REPLY_TO_EMAIL = "contact@creatorsaquarium.com";
 
-const resend = new Resend(RESEND_API_KEY);
+function getResendClient(): Resend | null {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) return null;
+  return new Resend(apiKey);
+}
 
 export interface InquiryPayload {
   name: string;
@@ -142,7 +145,8 @@ export async function sendInquiryNotification(
   const subject = `[New Inquiry] ${data.name} · ${data.locality} (${data.service || (data.mode === "setup" ? "New Setup" : "Maintenance")})`;
   const toEmail = DEFAULT_NOTIFICATION_EMAIL;
 
-  if (!RESEND_API_KEY) {
+  const resend = getResendClient();
+  if (!resend) {
     console.warn("[Resend Warning] RESEND_API_KEY is not configured in environment variables.");
     return {
       success: false,
