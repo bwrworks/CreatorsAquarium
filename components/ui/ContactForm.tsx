@@ -33,6 +33,25 @@ export function ContactForm() {
 
     setLoading(true);
 
+    // Send inquiry details to server for email notification via Resend
+    fetch("/api/inquiries", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: name.trim(),
+        phone: phone.trim(),
+        email: email.trim() || undefined,
+        locality,
+        service,
+        tankType,
+        tankSize,
+        notes: notes.trim() || undefined,
+        source: "Contact Page Form",
+      }),
+    }).catch((err) => {
+      console.warn("Background email notification error:", err);
+    });
+
     const messageLines = [
       `*New Service / Setup Inquiry - Creators Aquarium*`,
       `*Name:* ${name.trim()}`,

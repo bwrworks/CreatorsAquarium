@@ -101,7 +101,7 @@ export default function PrivacyPage() {
             </p>
             <div className="p-5 rounded-lg bg-[#0A0C0A] border border-[#242824] text-xs space-y-1">
               <span className="block font-bold text-[#F4F4EF]">Grievance Officer: Creators Aquarium Operations</span>
-              <span className="block text-[#A3A69F]">Email: care@creatorsaquarium.com</span>
+              <span className="block text-[#A3A69F]">Email: contact@creatorsaquarium.com</span>
               <span className="block text-[#A3A69F]">Location: Bengaluru, Karnataka, India</span>
             </div>
           </section>

@@ -93,6 +93,31 @@ ${notes ? `Notes: ${notes}\n` : ""}I will share photos of my tank here on WhatsA
       return;
     }
 
+    // Send inquiry details to server for email notification via Resend
+    fetch("/api/inquiries", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: name.trim(),
+        phone: phone.trim(),
+        locality,
+        mode,
+        service: mode === "setup" ? "New Turnkey Setup Consultation" : maintenanceService,
+        tankSize,
+        aquariumType,
+        existingTankStatus: mode === "setup" ? existingTankStatus : undefined,
+        needCabinet: mode === "setup" ? needCabinet : undefined,
+        setupStyle: mode === "setup" ? setupStyle : undefined,
+        budgetRange: mode === "setup" ? budgetRange : undefined,
+        tankCondition: mode === "maintenance" ? tankCondition : undefined,
+        serviceCadence: mode === "maintenance" ? serviceCadence : undefined,
+        notes: notes.trim() || undefined,
+        source: mode === "setup" ? "Modal (Setup Consultation)" : "Modal (Maintenance Quote)",
+      }),
+    }).catch((err) => {
+      console.warn("Background email notification error:", err);
+    });
+
     const message = buildWhatsAppMessage();
     const waUrl = getWhatsAppUrl(message);
 

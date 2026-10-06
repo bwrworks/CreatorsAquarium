@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
+import { sendInquiryNotification, InquiryPayload } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
-    const data = await request.json();
+    const data: InquiryPayload = await request.json();
 
-    const { name, phone, locality, service } = data;
+    const { name, phone, locality } = data;
 
     if (!name || !phone || !locality) {
       return NextResponse.json(
@@ -13,22 +14,27 @@ export async function POST(request: Request) {
       );
     }
 
-    // In Phase 1 without database credentials, log inquiry server-side
-    // This is prepared for seamless forwarding to Convex or internal webhook
+    // Server-side logging for operational audit
     console.log("=== NEW CREATORS AQUARIUM INQUIRY ===");
     console.log(`Customer : ${name}`);
     console.log(`Phone    : ${phone}`);
+    console.log(`Email    : ${data.email || "N/A"}`);
     console.log(`Locality : ${locality}`);
-    console.log(`Service  : ${service}`);
-    console.log(`Tank     : ${data.tankType || "N/A"} (${data.tankSize || "N/A"})`);
-    console.log(`Photo    : ${data.photoName || "None"}`);
+    console.log(`Mode     : ${data.mode || "standard"}`);
+    console.log(`Service  : ${data.service || "N/A"}`);
+    console.log(`Tank     : ${data.tankSize || "N/A"} (${data.aquariumType || data.tankType || "N/A"})`);
     console.log(`Notes    : ${data.notes || "None"}`);
     console.log("======================================");
 
+    // Send email notification via Resend
+    const emailResult = await sendInquiryNotification(data);
+
     return NextResponse.json({
       success: true,
-      message: "Inquiry registered successfully. Our team will contact you shortly.",
+      message: "Inquiry registered successfully.",
       inquiryId: `CA-${Date.now().toString().slice(-6)}`,
+      emailDelivered: emailResult.success,
+      usedFallback: emailResult.usedFallback,
     });
   } catch (error) {
     console.error("Inquiry registration error:", error);
