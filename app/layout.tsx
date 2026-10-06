@@ -9,6 +9,7 @@ import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { PageLoader } from "@/components/ui/PageLoader";
 import { BRAND } from "@/lib/constants";
 import { getLocalBusinessSchema } from "@/lib/seo";
+import { Analytics } from "@vercel/analytics/next";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -130,6 +131,7 @@ export default function RootLayout({
           </div>
           <QuoteModal />
           <WhatsAppButton />
+          <Analytics />
         </QuoteModalProvider>
       </body>
     </html>
